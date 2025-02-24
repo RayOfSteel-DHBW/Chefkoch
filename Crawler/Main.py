@@ -5,7 +5,7 @@ from ChefkochRepository import ChefkochRepository
 
 def main() -> None:
     # Erzeuge Repository und API
-    repo = ChefkochSQLiteDataService("chefkoch.db")
+    repo = ChefkochSQLiteDataService(r"..\Data\chefkoch.db")
     api = ChefkochAPI()
     
     # Falls noch keine Kategorien in der DB vorhanden sind, initialisiere sie
