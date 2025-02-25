@@ -1,6 +1,5 @@
 
 from ChefkochAPI import ChefkochAPI
-from ChefkochSQLiteDataService import ChefkochSQLiteDataService
 from ChefkochCrawler import ChefkochCrawler
 
 from ChefkochDataService import ChefkochDataService

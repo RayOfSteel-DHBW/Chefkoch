@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 from typing import List, Optional
-from ChefkochContracts import Category, Ingredient, Recipe, Tag
+from ChefkochContracts import Category, Ingredient, Recipe
 
 class ChefkochAPI:
     def __init__(self) -> None:
-        self.base_url = "https://www.chefkoch.de"
+        self.base_url = "https://www.chefkoch.de/"
         
 
     def beautify_text(self, text: str) -> str:
