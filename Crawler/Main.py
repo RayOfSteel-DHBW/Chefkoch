@@ -1,24 +1,34 @@
+
 from ChefkochAPI import ChefkochAPI
 from ChefkochSQLiteDataService import ChefkochSQLiteDataService
 from ChefkochCrawler import ChefkochCrawler
-from ChefkochRepository import ChefkochRepository
+
+from ChefkochDataService import ChefkochDataService
 
 def main() -> None:
-    # Erzeuge Repository und API
-    repo = ChefkochSQLiteDataService(r"..\Data\chefkoch.db")
-    api = ChefkochAPI()
+    crawler = InitializeCrawler()
     
-    # Falls noch keine Kategorien in der DB vorhanden sind, initialisiere sie
-    cursor = repo.conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM categories")
-    count = cursor.fetchone()[0]
-    if count == 0:
-        for cat in ChefkochRepository.DEFAULT_CATEGORIES:
-            repo.save_category(cat)
-    
-    # Starte den Crawler, der nun die in der DB hinterlegten Kategorien verwendet
-    crawler = ChefkochCrawler(api, repo)
-    crawler.run()
+    try:
+        crawler.Init()
+    except Exception as e:
+        print(f"Error during initialization: {e}")
+
+    try:
+        successfulCompletion = crawler.run()
+        if successfulCompletion:
+            print("Crawler completed successfully.")
+        else:
+            print("Crawler did not complete successfully.")
+    except Exception as e:
+        print(f"Error during initialization: {e}")
+
+
+def InitializeCrawler():
+    dbPath = r"..\Data\chefkoch.db"
+    dataService = ChefkochDataService(dbPath)
+    api = ChefkochAPI() 
+    crawler = ChefkochCrawler(api, dataService)
+    return crawler
 
 if __name__ == "__main__":
     main()
