@@ -17,7 +17,8 @@ class ChefkochCrawler:
 
         initial_categories = self.data_service.getCategories()
         for category in initial_categories:
-            self.enqueue_entity(category)
+            domainCategory = category.ToDomainObject()
+            self.enqueue_entity(domainCategory))
         
         while len(self.entity_queue) > 0:
             entity = self.entity_queue.popleft()

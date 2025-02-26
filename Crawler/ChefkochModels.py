@@ -1,5 +1,7 @@
 from peewee import Model, CharField, IntegerField, ManyToManyField, ForeignKeyField
 
+from ChefkochContracts import Category
+
 class ChefkochObjectModel(Model):
     name = CharField()
 
@@ -20,6 +22,10 @@ class CategoryModel(ChefkochEntityModel):
     external_id = IntegerField()
     current_page = IntegerField(default=0)
     max_page = IntegerField(default=0)
+    
+    def ToDomainObject(self)->Category:
+        return Category(self.name, self.url, self.external_id, self.current_page, self.max_page)
+        
 
 class RecipeModel(ChefkochEntityModel):
     ingredients = ManyToManyField(IngredientModel, backref='recipes')
