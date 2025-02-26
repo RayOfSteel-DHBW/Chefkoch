@@ -1,11 +1,11 @@
 from PatternBase import PatternBase
-from ChefkochContracts import Ingredient
+from ChefkochContracts import Ingredient, Category, Recipe
 
 class CategoryTagPattern(PatternBase):
-    def __init__(self, entityFactory):
+    def __init__(self):
         self.tagStart = '<a href="/rs/s'
         self.classMarker = 'class="ds-tag bi-tags"'
-        super().__init__(entityFactory)
+        super().__init__()
         
     def reset(self):
         super().reset()
@@ -27,71 +27,68 @@ class CategoryTagPattern(PatternBase):
                 self.state = 1  # Found opening of anchor tag, now collect s-number
                 return True
                 
-        # State 1: Collecting the part after /rs/s (could be 0t21, 123, etc.)
+        # States 1-4 remain unchanged
         elif self.state == 1:
+            # Existing code
             self.urlBuffer += character
-            
-            # Look for / that indicates end of the ID part
             if character == '/':
-                # Extract the ID from the URL (assuming format like s0t123/)
-                id_part = self.urlBuffer.split('/')[-2]  # Get the part before the slash
+                id_part = self.urlBuffer.split('/')[-2]
                 if 't' in id_part:
-                    # Format is like s0t123
-                    self.idBuffer = id_part.split('t')[-1]  # Get the number after 't'
+                    self.idBuffer = id_part.split('t')[-1]
                 else:
-                    # Just get the numeric part
                     self.idBuffer = ''.join(c for c in id_part if c.isdigit())
-                
-                self.state = 2  # Now look for class attribute
+                self.state = 2
                 return True
             return True
                 
-        # State 2: Look for class attribute
         elif self.state == 2:
+            # Existing code
             self.tagBuffer += character
             if len(self.tagBuffer) > len(self.classMarker):
                 self.tagBuffer = self.tagBuffer[1:]
             if self.tagBuffer.endswith(self.classMarker):
-                self.state = 3  # Found class marker, now look for tag end
+                self.state = 3
                 return True
             return True
             
-        # State 3: Looking for tag end (>)
         elif self.state == 3:
+            # Existing code
             if character == '>':
                 self.extractingName = True
-                self.state = 4  # Start extracting category name
+                self.state = 4
                 return True
             return True
             
-        # State 4: Collecting category name
         elif self.state == 4:
+            # Existing code
             if character == '<':
                 self.extractingName = False
-                self.state = 5  # Check for closing tag
+                self.state = 5
                 self.tagBuffer = character
                 return True
             if self.extractingName:
                 self.nameBuffer += character
             return True
             
-        # State 5: Verifying </a> closing tag
+        # In state 5, update the entity's categories
         elif self.state == 5:
             self.tagBuffer += character
             if self.tagBuffer == "</a>":
-                # We have a complete category, create it
-                from ChefkochContracts import Category
-                
                 name = self.nameBuffer.strip()
                 url = self.urlBuffer
                 
                 try:
                     category_id = int(self.idBuffer)
                     category = Category(name, url, category_id)
-                    self.entityFactory(category)
-                    self.state = -1  # We're done
+                    
+                    # Add category to the recipe's categories
+                    if self.result and isinstance(self.result.entity, Recipe):
+                        self.result.entity.categories.append(category)
+                        # Also add to foundCategories for crawling
+                        self.result.foundCategories.append(url)
+                        
+                    self.state = -1
                 except ValueError:
-                    # Couldn't parse the ID, reset
                     self.reset()
                 
                 return True
@@ -100,10 +97,10 @@ class CategoryTagPattern(PatternBase):
         return False
 
 class IngredientTablePattern(PatternBase):
-    def __init__(self, entityFactory):
+    def __init__(self):
         self.tableStartTag = '<table class="ingredients table-header"'
         self.fixedEnd = '</table>'
-        super().__init__(entityFactory)
+        super().__init__()
         
     def reset(self):
         super().reset()
@@ -121,138 +118,112 @@ class IngredientTablePattern(PatternBase):
         self.extractMode = False
         
     def check_pattern(self, character):
-        # State 0: Looking for table start
+        # States 0-1 remain unchanged
         if self.state == 0:
             self.tableBuffer += character
             if len(self.tableBuffer) > len(self.tableStartTag):
                 self.tableBuffer = self.tableBuffer[1:]
             
             if self.tableBuffer.endswith(self.tableStartTag):
-                self.state = 1  # Found table tag
+                self.state = 1
                 self.inTable = True
                 return True
                 
-        # State 1: Inside table, looking for rows
         elif self.state == 1:
             if character == '<':
                 self.tagBuffer = character
-                self.state = 2  # Start collecting tag
+                self.state = 2
                 return True
             return True
             
-        # State 2: Collecting tag name
+        # Handle row endings to create ingredients
         elif self.state == 2:
             self.tagBuffer += character
             
-            # Check for td-left class
             if self.tagBuffer.endswith('td-left'):
                 self.inLeftCell = True
                 self.inRightCell = False
-                self.state = 3  # Now looking for span with amount
+                self.state = 3
                 return True
                 
-            # Check for td-right class
             elif self.tagBuffer.endswith('td-right'):
                 self.inLeftCell = False
                 self.inRightCell = True
-                self.state = 4  # Now looking for ingredient name
+                self.state = 4
                 return True
                 
-            # Check for end of row
             elif self.tagBuffer.endswith('</tr>'):
-                # If we have data, create an ingredient
                 if self.name:
-                    # Create an ingredient using the factory
                     ingredient = Ingredient(self.name.strip(), self.amount.strip())
-                    self.entityFactory(ingredient)
-                    # Reset for next ingredient
+                    
+                    # Add ingredient to the recipe's ingredients
+                    if self.result and isinstance(self.result.entity, Recipe):
+                        self.result.entity.ingredients.append(ingredient)
+                        
                     self.amount = ""
                     self.name = ""
                 self.state = 1
                 return True
                 
-            # Check for end of table
             elif self.tagBuffer.endswith(self.fixedEnd):
-                self.state = -1  # We're done
+                self.state = -1
                 return True
                 
             return True
             
-        # State 3: Looking for amount in left cell
+        # States 3-6 remain unchanged
         elif self.state == 3:
             if character == '<':
                 self.tagBuffer = character
-                self.state = 5  # Check what tag this is
+                self.state = 5
                 return True
-                
-            # If we're extracting content, add to amount
             if self.extractMode:
                 self.amount += character
-                
             return True
             
-        # State 4: Looking for ingredient name in right cell
         elif self.state == 4:
             if character == '<':
                 self.tagBuffer = character
-                self.state = 6  # Check what tag this is
+                self.state = 6
                 return True
-                
-            # If we're extracting content, add to name
             if self.extractMode:
                 self.name += character
-                
             return True
             
-        # State 5: Checking tags in left cell
         elif self.state == 5:
             self.tagBuffer += character
-            
-            # Start extracting after span open
             if self.tagBuffer.endswith('<span>'):
                 self.extractMode = True
                 self.state = 3
                 return True
-                
-            # Stop extracting at span close
             elif self.tagBuffer.endswith('</span>'):
                 self.extractMode = False
                 self.state = 3
                 return True
-                
-            # End of left cell
             elif self.tagBuffer.endswith('</td>'):
                 self.inLeftCell = False
                 self.state = 1
                 return True
-                
             return True
             
-        # State 6: Checking tags in right cell
         elif self.state == 6:
             self.tagBuffer += character
-            
-            # Start extracting after span open
             if self.tagBuffer.endswith('<span>'):
                 self.extractMode = True
                 self.state = 4
                 return True
-                
-            # Stop extracting at span close
             elif self.tagBuffer.endswith('</span>'):
                 self.extractMode = False
                 self.state = 4
                 return True
-                
-            # End of right cell
             elif self.tagBuffer.endswith('</td>'):
                 self.inRightCell = False
                 self.state = 1
                 return True
-                
             return True
             
         return False
+
 class CategoryPattern(PatternBase):
     def __init__(self):
         self.fixedStart = "rs"
@@ -294,6 +265,12 @@ class CategoryPattern(PatternBase):
                         self.reset()
                         return False
                 return True
+        # When we reach the end state
+        elif self.state == -1:
+            # Add URL to foundCategories for crawling
+            if self.result and self.content:
+                self.result.foundCategories.append(self.content)
+            return True
         else:
             self.reset()
             return False
@@ -301,17 +278,15 @@ class CategoryPattern(PatternBase):
 
 class RezeptePattern(PatternBase):
     def __init__(self):
-        self.fixedStart = "rezepte/"
+        self.fixedStart = "rezepte"
+        self.fixedEnd = "html"
         super().__init__()
 
     def reset(self):
         super().reset()
         self.state = 0
-        self.numericIndex = 0
-        self.idBuffer = ""
-        self.fileNameBuffer = ""
         self.htmlBuffer = ""
-    
+
     def check_pattern(self, character):
         if self.state == 0:
             if(self.fixedStart[len(self.content)] == character):
@@ -347,5 +322,66 @@ class RezeptePattern(PatternBase):
                 self.content += self.htmlBuffer
                 self.state = -1
                 return True
-        else:
-            return False
+        # When we reach the end state
+        elif self.state == -1:
+            # Add URL to foundRecipes for crawling
+            if self.result and self.content:
+                self.result.foundRecipes.append(self.content)
+            return True
+        return False
+
+class RecipeTitlePattern(PatternBase):
+    def __init__(self):
+        self.titleStart = '<h1 class="ds-h1"'
+        self.titleEnd = '</h1>'
+        super().__init__()
+        
+    def reset(self):
+        super().reset()
+        self.state = 0
+        self.tagBuffer = ""
+        self.nameBuffer = ""
+        self.extractingName = False
+        
+    def check_pattern(self, character):
+        # State 0: Looking for start of title tag
+        if self.state == 0:
+            self.tagBuffer += character
+            if len(self.tagBuffer) > len(self.titleStart):
+                self.tagBuffer = self.tagBuffer[1:]  # Keep buffer size manageable
+            if self.tagBuffer.endswith(self.titleStart):
+                self.state = 1  # Found opening of title tag
+                return True
+                
+        # State 1: Looking for end of opening tag (>)
+        elif self.state == 1:
+            if character == '>':
+                self.extractingName = True
+                self.state = 2  # Start extracting recipe name
+                return True
+            return True
+            
+        # State 2: Collecting recipe name
+        elif self.state == 2:
+            if character == '<':
+                self.extractingName = False
+                self.state = 3  # Check for closing tag
+                self.tagBuffer = character
+                return True
+            if self.extractingName:
+                self.nameBuffer += character
+            return True
+            
+        # In state 3, update the recipe name
+        elif self.state == 3:
+            self.tagBuffer += character
+            if self.tagBuffer == self.titleEnd:
+                recipe_name = self.nameBuffer.strip()
+                # Update the name of the entity
+                if recipe_name and self.result and self.result.entity:
+                    self.result.entity.name = recipe_name
+                self.state = -1
+                return True
+            return True
+            
+        return False

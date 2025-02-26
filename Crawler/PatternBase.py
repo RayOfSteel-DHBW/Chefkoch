@@ -6,15 +6,16 @@ class PatternBase(ABC):
     def reset(self):
         self.content = ""
         self.state = 0
+        self.collected_entities = []
     
-    def __init__(self, entityFactory):
+    def __init__(self, entityFactory=None):
         self.entityFactory = entityFactory
         self.reset()
 
     # This is where patterns change their state
     @abstractmethod
     def check_pattern(self, character):
-        pass
+        raise NotImplementedError("Subclasses must implement this method")
     
     #workaround for unicode characters
     def check_unicode(self, character):
@@ -57,3 +58,13 @@ class PatternBase(ABC):
     @property
     def Content(self):
         return self.content
+
+    def add_entity(self, entity):
+        """Add an entity to the collection"""
+        self.collected_entities.append(entity)
+        
+    def get_collected_entities(self):
+        """Return and clear the collected entities"""
+        entities = self.collected_entities.copy()
+        self.collected_entities = []
+        return entities

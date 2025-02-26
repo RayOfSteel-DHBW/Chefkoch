@@ -5,13 +5,7 @@ from ChefkochCrawler import ChefkochCrawler
 from ChefkochDataService import ChefkochDataService
 
 def main() -> None:
-    
-    
-    try:
-        crawler = InitializeCrawler()
-    except Exception as e:
-        print(f"Error during initialization: {e}")
-
+    crawler = InitializeCrawler()
     try:
         successfulCompletion = crawler.run()
         if successfulCompletion:
