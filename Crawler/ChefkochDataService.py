@@ -14,7 +14,6 @@ class ChefkochDataService:
     def __init__(self, db_path: str):
         self.db = SqliteDatabase(db_path)
         
-        # Set database for models
         models = [CategoryModel, RecipeModel, IngredientModel, RecipeIngredient, RecipeCategory]
         for model in models:
             model._meta.database = self.db

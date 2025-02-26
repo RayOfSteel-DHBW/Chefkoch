@@ -2,7 +2,6 @@ from collections import deque
 import requests
 from ContentParser import ContentParser
 from ChefkochDataService import ChefkochDataService
-from ChefkochContracts import Recipe, Category, ChefkochEntity
 from ChefkochModels import RecipeModel, CategoryModel, IngredientModel
 
 class ChefkochCrawler:
@@ -14,11 +13,9 @@ class ChefkochCrawler:
         self.visited_urls = set()
         
     def run(self):
-
         initial_categories = self.data_service.getCategories()
         for category in initial_categories:
-            domainCategory = category.ToDomainObject()
-            self.enqueue_entity(domainCategory))
+            self.enqueue_entity(category)
         
         while len(self.entity_queue) > 0:
             entity = self.entity_queue.popleft()
@@ -28,31 +25,29 @@ class ChefkochCrawler:
                 
             content = self._fetch_url(url)
             if(content):
-                if isinstance(entity, Recipe):
+                if isinstance(entity, RecipeModel):
                     self.process_recipe_page(content, url)
                 else:
                     self.process_category_page(content, url)
     
     def process_recipe_page(self, html_content, recipe_url):
         """Process a recipe page and store its data"""
-        # Parse the content
+        # Parse the content - result.entity will now be a RecipeModel
         result = self.content_parser.parse(html_content, isRecipe=True, url=recipe_url)
         
         # Extract the recipe entity from the result
-        recipe_entity = result.entity
+        recipe_model = result.entity
         
-        if not recipe_entity or not recipe_entity.name:
+        if not recipe_model or not recipe_model.name:
             print(f"Could not extract recipe from {recipe_url}")
             return None
-            
-        # Convert entities to models using to_model()
-        recipe_model = recipe_entity.to_model()
-        ingredient_models = [i.to_model() for i in recipe_entity.ingredients]
-        category_models = [c.to_model() for c in recipe_entity.categories]
         
+        # Already working with models - no conversion needed
         # Store in database
         recipe = self.data_service.create_recipe_with_relations(
-            recipe_model, ingredient_models, category_models
+            recipe_model, 
+            recipe_model.ingredients, 
+            recipe_model.categories
         )
         
         # Add newly found entities to the queue
@@ -73,7 +68,7 @@ class ChefkochCrawler:
         # Add recipes (higher priority - left)
         for url in result.foundRecipes:
             if url not in self.visited_urls:
-                recipe = Recipe("", url)  # Name will be populated when we process it
+                recipe = RecipeModel(name="", url=url)  # Name will be populated when we process it
                 self.enqueue_entity(recipe)
                 
         # Add categories (lower priority - right)
@@ -85,16 +80,19 @@ class ChefkochCrawler:
                 except (IndexError, ValueError):
                     category_id = 0
                     
-                category = Category("", url, category_id)  # Name will be populated when we process it
+                category = CategoryModel(
+                    name="", 
+                    url=url, 
+                    external_id=category_id
+                )  # Name will be populated when we process it
                 self.enqueue_entity(category)
             
     def enqueue_entity(self, entity):
         """Add entity to queue with priority based on type"""
-
         if entity.url in self.visited_urls:
             return
         
-        if isinstance(entity, Recipe):
+        if isinstance(entity, RecipeModel):
             # Higher priority - add to the left (front)
             self.entity_queue.appendleft(entity)
         else:
@@ -116,27 +114,5 @@ class ChefkochCrawler:
             return None
         return response.text
     
-    def _create_ingredient_models(self, ingredients):
-        """Convert ingredient entities to models and store them"""
-        models = []
-        for ingredient in ingredients:
-            model = IngredientModel.get_or_create(
-                name=ingredient.name,
-                defaults={'amount': ingredient.amount}
-            )[0]
-            models.append(model)
-        return models
-    
-    def _create_category_models(self, categories):
-        """Convert category entities to models and store them"""
-        models = []
-        for category in categories:
-            model = CategoryModel.get_or_create(
-                name=category.name,
-                defaults={
-                    'url': category.url,
-                    'external_id': category.ID
-                }
-            )[0]
-            models.append(model)
-        return models
+    # Removed _create_ingredient_models and _create_category_models methods
+    # since we're working directly with models now

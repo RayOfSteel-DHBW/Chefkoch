@@ -1,5 +1,5 @@
 from PatternBase import PatternBase
-from ChefkochContracts import Ingredient, Category, Recipe
+from ChefkochModels import IngredientModel, CategoryModel, RecipeModel
 
 class CategoryTagPattern(PatternBase):
     def __init__(self):
@@ -79,10 +79,10 @@ class CategoryTagPattern(PatternBase):
                 
                 try:
                     category_id = int(self.idBuffer)
-                    category = Category(name, url, category_id)
+                    category = CategoryModel(name=name, url=url, external_id=category_id)
                     
                     # Add category to the recipe's categories
-                    if self.result and isinstance(self.result.entity, Recipe):
+                    if self.result and isinstance(self.result.entity, RecipeModel):
                         self.result.entity.categories.append(category)
                         # Also add to foundCategories for crawling
                         self.result.foundCategories.append(url)
@@ -154,10 +154,10 @@ class IngredientTablePattern(PatternBase):
                 
             elif self.tagBuffer.endswith('</tr>'):
                 if self.name:
-                    ingredient = Ingredient(self.name.strip(), self.amount.strip())
+                    ingredient = IngredientModel(name=self.name.strip())
                     
                     # Add ingredient to the recipe's ingredients
-                    if self.result and isinstance(self.result.entity, Recipe):
+                    if self.result and isinstance(self.result.entity, RecipeModel):
                         self.result.entity.ingredients.append(ingredient)
                         
                     self.amount = ""
@@ -226,7 +226,7 @@ class IngredientTablePattern(PatternBase):
 
 class CategoryPattern(PatternBase):
     def __init__(self):
-        self.fixedStart = "rs"
+        self.fixedStart = "rs/"
         self.fixedEnd = "html"
         super().__init__()
 
@@ -237,8 +237,8 @@ class CategoryPattern(PatternBase):
 
     def check_pattern(self, character):
         if self.state == 0:
+            self.content += character
             if self.fixedStart[len(self.content)] == character:
-                self.content += character
                 if len(self.content) == len(self.fixedStart):
                     self.state = 1
                     return True
@@ -273,8 +273,7 @@ class CategoryPattern(PatternBase):
             return True
         else:
             self.reset()
-            return False
-        return True
+        return False
 
 class RezeptePattern(PatternBase):
     def __init__(self):

@@ -6,10 +6,9 @@ class PatternBase(ABC):
     def reset(self):
         self.content = ""
         self.state = 0
-        self.collected_entities = []
+        self.trackingUnicode = False
     
-    def __init__(self, entityFactory=None):
-        self.entityFactory = entityFactory
+    def __init__(self):
         self.reset()
 
     # This is where patterns change their state
@@ -34,8 +33,7 @@ class PatternBase(ABC):
             else:
                 return None
         
-    def check_character(self, character)->str:
-        
+    def check_character(self, character, parsingResult)->str:
         unicodeCharacter = self.check_unicode(character)
         if(unicodeCharacter):
             character = unicodeCharacter

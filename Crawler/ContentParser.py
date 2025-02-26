@@ -1,9 +1,10 @@
+from ChefkochModels import CategoryModel, RecipeModel
 from PatternBase import PatternBase
 from ParsingPatterns import (
     CategoryPattern, RezeptePattern, CategoryTagPattern, 
     IngredientTablePattern, RecipeTitlePattern
 )
-from ChefkochContracts import Recipe
+from ChefkochContracts import Category, Recipe
 from ParsingResult import ParsingResult
 
 class ContentParser():
@@ -20,17 +21,8 @@ class ContentParser():
             
     def parse(self, content, isRecipe=False, url="") -> ParsingResult:
         # Create result with an empty entity
-        entity = Recipe("", url) if isRecipe else None
-        result = ParsingResult(entity=entity, foundRecipes=[], foundCategories=[])
-        
-        # Set the result on all patterns
-        for pattern in self.patterns:
-            pattern.set_result(result)
-            
-        if isRecipe:
-            for pattern in self.recipePatterns:
-                pattern.set_result(result)
-        
+        entity = RecipeModel("", url) if isRecipe else CategoryModel("", url)
+        result = ParsingResult(entity)
         # Process all patterns
         usedPatterns = self.patterns.copy()
         if isRecipe:
@@ -39,6 +31,6 @@ class ContentParser():
         # Process character by character
         for character in content:                
             for pattern in usedPatterns:
-                pattern.check_character(character)
+                result = pattern.check_character(character)
         
         return result
