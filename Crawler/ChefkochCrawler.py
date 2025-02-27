@@ -12,63 +12,56 @@ class ChefkochCrawler:
         self.entity_queue = deque()
         self.visited_urls = set()
         
-    def run(self):
+    def run(self)->bool:
         initial_categories = self.data_service.getCategories()
         for category in initial_categories:
             self.enqueue_entity(category)
         
         while len(self.entity_queue) > 0:
-            entity = self.entity_queue.popleft()
-            url = entity.url
-            if url in self.visited_urls:
-                continue
+            try:
+                entity = self.entity_queue.popleft()
+                url = entity.url
+                if url in self.visited_urls:
+                    continue
                 
-            content = self._fetch_url(url)
-            if(content):
-                if isinstance(entity, RecipeModel):
-                    self.process_recipe_page(content, url)
-                else:
-                    self.process_category_page(content, url)
+                content = self._fetch_url(url)
+                
+                if content:
+                    self.process_page(content, url, entity)
+            except Exception as e:
+                print(f"Error processing entity {getattr(entity, 'url', 'unknown')}: {str(e)}")
+                # Continue with the next entity in the queue
+                continue
     
-    def process_recipe_page(self, html_content, recipe_url):
-        """Process a recipe page and store its data"""
-        # Parse the content - result.entity will now be a RecipeModel
-        result = self.content_parser.parse(html_content, isRecipe=True, url=recipe_url)
+    def process_page(self, html_content, url, entity):
+        """Process a page (recipe or category) and store/extract data"""
+        is_recipe = isinstance(entity, RecipeModel)
         
-        # Extract the recipe entity from the result
-        recipe_model = result.entity
+        result = self.content_parser.parse(html_content, isRecipe=is_recipe, url=url)
         
-        if not recipe_model or not recipe_model.name:
-            print(f"Could not extract recipe from {recipe_url}")
-            return None
-        
-        # Already working with models - no conversion needed
-        # Store in database
-        recipe = self.data_service.create_recipe_with_relations(
-            recipe_model, 
-            recipe_model.ingredients, 
-            recipe_model.categories
-        )
+        # For recipes, store the data
+        if is_recipe:
+            recipe_model = result.entity
+            if recipe_model and recipe_model.name:
+                self.data_service.create_recipe_with_relations(
+                    recipe_model,
+                    recipe_model.ingredients,
+                    recipe_model.categories
+                )
+            else:
+                print(f"Could not extract recipe from {url}")
         
         # Add newly found entities to the queue
         self._enqueue_found_entities(result)
-            
-        return recipe
         
-    def process_category_page(self, html_content, category_url):
-        """Process a category page and extract recipes and subcategories"""
-        # Parse the content
-        result = self.content_parser.parse(html_content, isRecipe=False, url=category_url)
-        
-        # Add all found entities to the queue
-        self._enqueue_found_entities(result)
+        return result.entity if is_recipe else None
             
     def _enqueue_found_entities(self, result):
         """Process found URLs from parsing result and add to queue"""
         # Add recipes (higher priority - left)
         for url in result.foundRecipes:
             if url not in self.visited_urls:
-                recipe = RecipeModel(name="", url=url)  # Name will be populated when we process it
+                recipe = RecipeModel(name=None, url=url)  # Name will be populated when we process it
                 self.enqueue_entity(recipe)
                 
         # Add categories (lower priority - right)

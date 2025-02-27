@@ -1,7 +1,6 @@
 from typing import Type, TypeVar, List, Optional
 from peewee import SqliteDatabase, Model, DoesNotExist
 
-# Import models from ChefkochModels.py
 from ChefkochModels import (
     CategoryModel, RecipeModel, IngredientModel,
     RecipeIngredient, RecipeCategory
@@ -25,8 +24,12 @@ class ChefkochDataService:
     def _initialize_categories(self):
         """Add default categories if they don't exist."""
         DEFAULT_CATEGORIES = [
-            {"name": "Auflauf", "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html", "external_id": 30, "current_page": 0, "max_page": 1},
-            {"name": "Pizza", "url": "https://www.chefkoch.de/rs/s0t82/Pizza-Rezepte.html", "external_id": 82, "current_page": 0, "max_page": 1},
+            {"name": "Auflauf", 
+             "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html", 
+             "external_id": 30, "current_page": 0, "max_page": 1},
+            {"name": "Pizza",
+             "url": "https://www.chefkoch.de/rs/s0t82/Pizza-Rezepte.html",
+             "external_id": 82, "current_page": 0, "max_page": 1},
             {"name": "Kuchen", "url": "https://www.chefkoch.de/rs/s0t78/Kuchen-Rezepte.html", "external_id": 78, "current_page": 0, "max_page": 1},
         ]  # Add more if needed
         

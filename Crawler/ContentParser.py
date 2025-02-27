@@ -31,6 +31,6 @@ class ContentParser():
         # Process character by character
         for character in content:                
             for pattern in usedPatterns:
-                result = pattern.check_character(character)
+                result = pattern.check_character(character, result)
         
         return result

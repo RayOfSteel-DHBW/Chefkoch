@@ -12,7 +12,7 @@ class ParsingResult(Generic[T]):
         self.entity = entity
         self.foundRecipes = []
         self.foundCategories = []
-    """Generic result container that can hold any ChefkochEntityModel subclass"""
+
     entity: T
     foundRecipes: List[str]
     foundCategories: List[str]

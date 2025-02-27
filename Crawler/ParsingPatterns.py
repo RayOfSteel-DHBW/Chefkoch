@@ -1,3 +1,4 @@
+from turtle import reset
 from PatternBase import PatternBase
 from ChefkochModels import IngredientModel, CategoryModel, RecipeModel
 
@@ -26,8 +27,7 @@ class CategoryTagPattern(PatternBase):
                 self.urlBuffer = "/rs/s"
                 self.state = 1  # Found opening of anchor tag, now collect s-number
                 return True
-                
-        # States 1-4 remain unchanged
+             
         elif self.state == 1:
             # Existing code
             self.urlBuffer += character
@@ -228,7 +228,7 @@ class CategoryPattern(PatternBase):
     def __init__(self):
         self.fixedStart = "rs/"
         self.fixedEnd = "html"
-        super().__init__()
+        reset()
 
     def reset(self):
         super().reset()
