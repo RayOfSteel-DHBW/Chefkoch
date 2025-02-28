@@ -42,20 +42,23 @@ class RecipeModel(ChefkochEntityModel):
 
 
 class ChefkochDataService:
-    def __init__(self):
-        # Initialize any necessary resources, such as database connections
-        pass
     def create_entity(self, entity, is_recipe):
         with db.atomic():  # Use a context manager to handle the transaction
             if is_recipe:
                 # Assuming entity is a RecipeModel instance
                 recipe = RecipeModel.create(name=entity.name, url=entity.url)
                 for ingredient in entity.ingredients:
-                    ingredient_model, created = IngredientModel.get_or_create(name=ingredient.name)
+                    ingredient_model = IngredientModel.get_or_create(name=ingredient.name)
                     recipe.ingredients.add(ingredient_model, through_defaults={'amount': ingredient.amount})
                 for category in entity.categories:
-                    category_model, created = CategoryModel.get_or_create(name=category.name, external_id=category.external_id)
+                    category_model = CategoryModel.get_or_create(name=category.name, external_id=category.external_id)
                     recipe.categories.add(category_model)
             else:
-                CategoryModel.create(name=entity.name, url=entity.url, external_id=entity.external_id)
+                CategoryModel.create(
+                    name=entity.name,
+                    url=entity.url,
+                    external_id=entity.external_id)
             db.commit()
+
+    def get_categories(self):
+        return CategoryModel.select().where(CategoryModel.current_page < CategoryModel.max_page)

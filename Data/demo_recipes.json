@@ -92,6 +92,74 @@
     ]
   },
   {
+    "name": "Kartoffel-Brokkoli-Auflauf",
+    "url": "https://www.chefkoch.de/rezepte/2365691375701643/Kartoffel-Brokkoli-Auflauf.html",
+    "ingredients": [
+      {
+        "name": "No ingredient name found",
+        "amount": "No ingredient amount found"
+      },
+      {
+        "name": "Wasser",
+        "amount": "1 Liter"
+      },
+      {
+        "name": "Gemüsebrühepulver",
+        "amount": "n. B."
+      },
+      {
+        "name": "Kartoffel(n)",
+        "amount": "6 m.-große"
+      },
+      {
+        "name": "Brokkoli",
+        "amount": "2 Köpfe"
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Gemüse",
+        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+      },
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
+        "name": "Vegetarisch",
+        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
+      },
+      {
+        "name": "Beilage",
+        "url": "/rs/s0t36/Beilage-Rezepte.html"
+      },
+      {
+        "name": "einfach",
+        "url": "/rs/s0t50/einfach-Rezepte.html"
+      },
+      {
+        "name": "Kartoffel",
+        "url": "/rs/s0t68/Kartoffel-Rezepte.html"
+      },
+      {
+        "name": "Kartoffeln",
+        "url": "/rs/s0t138/Kartoffeln-Rezepte.html"
+      },
+      {
+        "name": "Studentenküche",
+        "url": "/rs/s0t211/Studentenkueche-Rezepte.html"
+      }
+    ]
+  },
+  {
     "name": "Gnocchi-Spinat-Auflauf mit Hähnchen und Curry",
     "url": "https://www.chefkoch.de/rezepte/831281187765616/Gnocchi-Spinat-Auflauf-mit-Haehnchen-und-Curry.html",
     "ingredients": [
@@ -176,74 +244,6 @@
       {
         "name": "Kartoffeln",
         "url": "/rs/s0t138/Kartoffeln-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Kartoffel-Brokkoli-Auflauf",
-    "url": "https://www.chefkoch.de/rezepte/2365691375701643/Kartoffel-Brokkoli-Auflauf.html",
-    "ingredients": [
-      {
-        "name": "No ingredient name found",
-        "amount": "No ingredient amount found"
-      },
-      {
-        "name": "Wasser",
-        "amount": "1 Liter"
-      },
-      {
-        "name": "Gemüsebrühepulver",
-        "amount": "n. B."
-      },
-      {
-        "name": "Kartoffel(n)",
-        "amount": "6 m.-große"
-      },
-      {
-        "name": "Brokkoli",
-        "amount": "2 Köpfe"
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Gemüse",
-        "url": "/rs/s0t18/Gemuese-Rezepte.html"
-      },
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "Vegetarisch",
-        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
-      },
-      {
-        "name": "Beilage",
-        "url": "/rs/s0t36/Beilage-Rezepte.html"
-      },
-      {
-        "name": "einfach",
-        "url": "/rs/s0t50/einfach-Rezepte.html"
-      },
-      {
-        "name": "Kartoffel",
-        "url": "/rs/s0t68/Kartoffel-Rezepte.html"
-      },
-      {
-        "name": "Kartoffeln",
-        "url": "/rs/s0t138/Kartoffeln-Rezepte.html"
-      },
-      {
-        "name": "Studentenküche",
-        "url": "/rs/s0t211/Studentenkueche-Rezepte.html"
       }
     ]
   },
@@ -364,6 +364,70 @@
     ]
   },
   {
+    "name": "Kartoffelgratin",
+    "url": "https://www.chefkoch.de/rezepte/837601188560864/Kartoffelgratin.html",
+    "ingredients": [
+      {
+        "name": "Kartoffeln, vorwiegend festkochende",
+        "amount": "500 g"
+      },
+      {
+        "name": "Milch",
+        "amount": "125 ml"
+      },
+      {
+        "name": "süße Sahne",
+        "amount": "125 ml"
+      },
+      {
+        "name": "Knoblauchzehe(n)",
+        "amount": "1"
+      },
+      {
+        "name": "Salz und Pfeffer",
+        "amount": ""
+      },
+      {
+        "name": "Rosmarin",
+        "amount": ""
+      },
+      {
+        "name": "Butter für die Form",
+        "amount": ""
+      },
+      {
+        "name": "Käse, frisch geriebener (z. B. Parmesan oder Pecorino)",
+        "amount": "3 EL"
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
+        "name": "Vegetarisch",
+        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
+      },
+      {
+        "name": "Beilage",
+        "url": "/rs/s0t36/Beilage-Rezepte.html"
+      },
+      {
+        "name": "Kartoffel",
+        "url": "/rs/s0t68/Kartoffel-Rezepte.html"
+      },
+      {
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
+      }
+    ]
+  },
+  {
     "name": "Cremiger Nudelauflauf mit Tomaten und Mozzarella",
     "url": "https://www.chefkoch.de/rezepte/2352371374010722/Cremiger-Nudelauflauf-mit-Tomaten-und-Mozzarella.html",
     "ingredients": [
@@ -460,262 +524,6 @@
       {
         "name": "Vegetarisch",
         "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
-      },
-      {
-        "name": "Käse",
-        "url": "/rs/s0t83/Kaese-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Kartoffelgratin",
-    "url": "https://www.chefkoch.de/rezepte/837601188560864/Kartoffelgratin.html",
-    "ingredients": [
-      {
-        "name": "Kartoffeln, vorwiegend festkochende",
-        "amount": "500 g"
-      },
-      {
-        "name": "Milch",
-        "amount": "125 ml"
-      },
-      {
-        "name": "süße Sahne",
-        "amount": "125 ml"
-      },
-      {
-        "name": "Knoblauchzehe(n)",
-        "amount": "1"
-      },
-      {
-        "name": "Salz und Pfeffer",
-        "amount": ""
-      },
-      {
-        "name": "Rosmarin",
-        "amount": ""
-      },
-      {
-        "name": "Butter für die Form",
-        "amount": ""
-      },
-      {
-        "name": "Käse, frisch geriebener (z. B. Parmesan oder Pecorino)",
-        "amount": "3 EL"
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "Vegetarisch",
-        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
-      },
-      {
-        "name": "Beilage",
-        "url": "/rs/s0t36/Beilage-Rezepte.html"
-      },
-      {
-        "name": "Kartoffel",
-        "url": "/rs/s0t68/Kartoffel-Rezepte.html"
-      },
-      {
-        "name": "Käse",
-        "url": "/rs/s0t83/Kaese-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Türkischer Hackfleischauflauf mit Schafskäse",
-    "url": "https://www.chefkoch.de/rezepte/1560161263457749/Tuerkischer-Hackfleischauflauf-mit-Schafskaese.html",
-    "ingredients": [
-      {
-        "name": "Schafskäse (Würfel in Öl, ca. 150 - 200 g)",
-        "amount": "1 Glas"
-      },
-      {
-        "name": "Rinderhackfleisch oder Lammhackfleisch",
-        "amount": "600 g"
-      },
-      {
-        "name": "Champignons, frische",
-        "amount": "500 g"
-      },
-      {
-        "name": "Paprikaschote(n), rote und grüne",
-        "amount": "2"
-      },
-      {
-        "name": "Knoblauchzehe(n)",
-        "amount": "2"
-      },
-      {
-        "name": "Crème fraîche",
-        "amount": "300 g"
-      },
-      {
-        "name": "Oregano, getrockneter",
-        "amount": "1 TL"
-      },
-      {
-        "name": "Schafskäse am Stück",
-        "amount": "100 g"
-      },
-      {
-        "name": "Salz und Pfeffer, frisch gemahlener",
-        "amount": ""
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Fleisch",
-        "url": "/rs/s0t16/Fleisch-Rezepte.html"
-      },
-      {
-        "name": "Gemüse",
-        "url": "/rs/s0t18/Gemuese-Rezepte.html"
-      },
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Rind",
-        "url": "/rs/s0t22/Rind-Rezepte.html"
-      },
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "Party",
-        "url": "/rs/s0t45/Party-Rezepte.html"
-      },
-      {
-        "name": "Käse",
-        "url": "/rs/s0t83/Kaese-Rezepte.html"
-      },
-      {
-        "name": "Türkei",
-        "url": "/rs/s0t103/Tuerkei-Rezepte.html"
-      },
-      {
-        "name": "Pilze",
-        "url": "/rs/s0t140/Pilze-Rezepte.html"
-      },
-      {
-        "name": "ketogen",
-        "url": "/rs/s0t9947/ketogen-Rezepte.html"
-      },
-      {
-        "name": "Low Carb",
-        "url": "/rs/s0t9948/Low-Carb-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Straßburger Auflauf",
-    "url": "https://www.chefkoch.de/rezepte/701911172819472/Strassburger-Auflauf.html",
-    "ingredients": [
-      {
-        "name": "Bandnudeln (oder andere Sorte nach Wahl)",
-        "amount": "200 g"
-      },
-      {
-        "name": "Zwiebel(n)",
-        "amount": "1 große"
-      },
-      {
-        "name": "Öl",
-        "amount": "2 EL"
-      },
-      {
-        "name": "Hackfleisch, gemischtes",
-        "amount": "250 g"
-      },
-      {
-        "name": "Rotwein",
-        "amount": "⅛ Liter"
-      },
-      {
-        "name": "Tomatenmark",
-        "amount": "5 EL"
-      },
-      {
-        "name": "Thymian",
-        "amount": "½ TL"
-      },
-      {
-        "name": "Cayennepfeffer",
-        "amount": "½ TL"
-      },
-      {
-        "name": "Salz",
-        "amount": "1 ½ TL"
-      },
-      {
-        "name": "Fett für die Form",
-        "amount": ""
-      },
-      {
-        "name": "Käse, geriebener nach Wahl",
-        "amount": "100 g"
-      },
-      {
-        "name": "Sahne (200 g)",
-        "amount": "1 Becher"
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Fleisch",
-        "url": "/rs/s0t16/Fleisch-Rezepte.html"
-      },
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Rind",
-        "url": "/rs/s0t22/Rind-Rezepte.html"
-      },
-      {
-        "name": "Nudeln",
-        "url": "/rs/s0t24/Nudeln-Rezepte.html"
-      },
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "Pasta",
-        "url": "/rs/s0t31/Pasta-Rezepte.html"
-      },
-      {
-        "name": "Saucen",
-        "url": "/rs/s0t34/Saucen-Rezepte.html"
-      },
-      {
-        "name": "einfach",
-        "url": "/rs/s0t50/einfach-Rezepte.html"
-      },
-      {
-        "name": "Schwein",
-        "url": "/rs/s0t59/Schwein-Rezepte.html"
       },
       {
         "name": "Käse",
@@ -824,56 +632,56 @@
     ]
   },
   {
-    "name": "Rigatoni al forno",
-    "url": "https://www.chefkoch.de/rezepte/1299041235031624/Rigatoni-al-forno.html",
+    "name": "Straßburger Auflauf",
+    "url": "https://www.chefkoch.de/rezepte/701911172819472/Strassburger-Auflauf.html",
     "ingredients": [
       {
-        "name": "Olivenöl",
-        "amount": "1 EL"
+        "name": "Bandnudeln (oder andere Sorte nach Wahl)",
+        "amount": "200 g"
       },
       {
-        "name": "Rinderhackfleisch",
-        "amount": "150 g"
+        "name": "Zwiebel(n)",
+        "amount": "1 große"
+      },
+      {
+        "name": "Öl",
+        "amount": "2 EL"
+      },
+      {
+        "name": "Hackfleisch, gemischtes",
+        "amount": "250 g"
+      },
+      {
+        "name": "Rotwein",
+        "amount": "⅛ Liter"
       },
       {
         "name": "Tomatenmark",
-        "amount": "3 EL"
+        "amount": "5 EL"
       },
       {
-        "name": "Gemüsebrühe",
-        "amount": "200 ml"
-      },
-      {
-        "name": "Sahne",
-        "amount": "200 ml"
-      },
-      {
-        "name": "Butter, kalte",
-        "amount": "1 EL"
-      },
-      {
-        "name": "Parmesan, frisch geriebener",
-        "amount": "1 EL"
-      },
-      {
-        "name": "Salz",
-        "amount": ""
+        "name": "Thymian",
+        "amount": "½ TL"
       },
       {
         "name": "Cayennepfeffer",
+        "amount": "½ TL"
+      },
+      {
+        "name": "Salz",
+        "amount": "1 ½ TL"
+      },
+      {
+        "name": "Fett für die Form",
         "amount": ""
       },
       {
-        "name": "Rigatoni",
-        "amount": "400 g"
+        "name": "Käse, geriebener nach Wahl",
+        "amount": "100 g"
       },
       {
-        "name": "Kochschinken",
-        "amount": "150 g"
-      },
-      {
-        "name": "Edamer Käse, geriebener",
-        "amount": "200 g"
+        "name": "Sahne (200 g)",
+        "amount": "1 Becher"
       }
     ],
     "category": {
@@ -898,14 +706,6 @@
         "url": "/rs/s0t24/Nudeln-Rezepte.html"
       },
       {
-        "name": "Italien",
-        "url": "/rs/s0t28/Italien-Rezepte.html"
-      },
-      {
-        "name": "Europa",
-        "url": "/rs/s0t29/Europa-Rezepte.html"
-      },
-      {
         "name": "Auflauf",
         "url": "/rs/s0t30/Auflauf-Rezepte.html"
       },
@@ -918,12 +718,152 @@
         "url": "/rs/s0t34/Saucen-Rezepte.html"
       },
       {
+        "name": "einfach",
+        "url": "/rs/s0t50/einfach-Rezepte.html"
+      },
+      {
         "name": "Schwein",
         "url": "/rs/s0t59/Schwein-Rezepte.html"
       },
       {
         "name": "Käse",
         "url": "/rs/s0t83/Kaese-Rezepte.html"
+      }
+    ]
+  },
+  {
+    "name": "Toskanischer Hähnchen-Auflauf",
+    "url": "https://www.chefkoch.de/rezepte/472271140790423/Toskanischer-Haehnchen-Auflauf.html",
+    "ingredients": [
+      {
+        "name": "No ingredient name found",
+        "amount": "No ingredient amount found"
+      },
+      {
+        "name": "Olivenöl",
+        "amount": "3 EL"
+      },
+      {
+        "name": "Honig",
+        "amount": "1 EL"
+      },
+      {
+        "name": "Sojasauce",
+        "amount": "3 EL"
+      },
+      {
+        "name": "Chilisauce",
+        "amount": "3 EL"
+      },
+      {
+        "name": "Preiselbeeren (aus dem Glas)",
+        "amount": "1 TL"
+      },
+      {
+        "name": "Ketchup",
+        "amount": "3 EL"
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Gemüse",
+        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+      },
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
+        "name": "Geflügel",
+        "url": "/rs/s0t58/Gefluegel-Rezepte.html"
+      },
+      {
+        "name": "Kartoffeln",
+        "url": "/rs/s0t138/Kartoffeln-Rezepte.html"
+      }
+    ]
+  },
+  {
+    "name": "Zwiebel-Sahne-Hähnchen",
+    "url": "https://www.chefkoch.de/rezepte/382111124720277/Zwiebel-Sahne-Haehnchen.html",
+    "ingredients": [
+      {
+        "name": "Hühnerbrüste oder Putenbrustfilet",
+        "amount": "500 g"
+      },
+      {
+        "name": "Zwiebel(n)",
+        "amount": "350 g"
+      },
+      {
+        "name": "süße Sahne",
+        "amount": "200 ml"
+      },
+      {
+        "name": "Gemüsebrühe",
+        "amount": "150 ml"
+      },
+      {
+        "name": "Mehl",
+        "amount": "1 TL, gehäuft"
+      },
+      {
+        "name": "Salz und Pfeffer",
+        "amount": ""
+      },
+      {
+        "name": "Butter oder Margarine",
+        "amount": ""
+      },
+      {
+        "name": "Fett für die Form",
+        "amount": ""
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Fleisch",
+        "url": "/rs/s0t16/Fleisch-Rezepte.html"
+      },
+      {
+        "name": "Gemüse",
+        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+      },
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
+        "name": "Saucen",
+        "url": "/rs/s0t34/Saucen-Rezepte.html"
+      },
+      {
+        "name": "Geflügel",
+        "url": "/rs/s0t58/Gefluegel-Rezepte.html"
+      },
+      {
+        "name": "ketogen",
+        "url": "/rs/s0t9947/ketogen-Rezepte.html"
+      },
+      {
+        "name": "Low Carb",
+        "url": "/rs/s0t9948/Low-Carb-Rezepte.html"
       }
     ]
   },
@@ -1720,6 +1660,166 @@
     ]
   },
   {
+    "name": "Rigatoni al forno",
+    "url": "https://www.chefkoch.de/rezepte/1299041235031624/Rigatoni-al-forno.html",
+    "ingredients": [
+      {
+        "name": "Olivenöl",
+        "amount": "1 EL"
+      },
+      {
+        "name": "Rinderhackfleisch",
+        "amount": "150 g"
+      },
+      {
+        "name": "Tomatenmark",
+        "amount": "3 EL"
+      },
+      {
+        "name": "Gemüsebrühe",
+        "amount": "200 ml"
+      },
+      {
+        "name": "Sahne",
+        "amount": "200 ml"
+      },
+      {
+        "name": "Butter, kalte",
+        "amount": "1 EL"
+      },
+      {
+        "name": "Parmesan, frisch geriebener",
+        "amount": "1 EL"
+      },
+      {
+        "name": "Salz",
+        "amount": ""
+      },
+      {
+        "name": "Cayennepfeffer",
+        "amount": ""
+      },
+      {
+        "name": "Rigatoni",
+        "amount": "400 g"
+      },
+      {
+        "name": "Kochschinken",
+        "amount": "150 g"
+      },
+      {
+        "name": "Edamer Käse, geriebener",
+        "amount": "200 g"
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Fleisch",
+        "url": "/rs/s0t16/Fleisch-Rezepte.html"
+      },
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "Rind",
+        "url": "/rs/s0t22/Rind-Rezepte.html"
+      },
+      {
+        "name": "Nudeln",
+        "url": "/rs/s0t24/Nudeln-Rezepte.html"
+      },
+      {
+        "name": "Italien",
+        "url": "/rs/s0t28/Italien-Rezepte.html"
+      },
+      {
+        "name": "Europa",
+        "url": "/rs/s0t29/Europa-Rezepte.html"
+      },
+      {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
+        "name": "Pasta",
+        "url": "/rs/s0t31/Pasta-Rezepte.html"
+      },
+      {
+        "name": "Saucen",
+        "url": "/rs/s0t34/Saucen-Rezepte.html"
+      },
+      {
+        "name": "Schwein",
+        "url": "/rs/s0t59/Schwein-Rezepte.html"
+      },
+      {
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
+      }
+    ]
+  },
+  {
+    "name": "Hackbällchen-Auflauf mit Sauerkraut",
+    "url": "https://www.chefkoch.de/rezepte/4269921701187521/Hackbaellchen-Auflauf-mit-Sauerkraut.html?ck_source=search-recipe&ck_element=recipe_search_list",
+    "ingredients": [
+      {
+        "name": "Sauerkraut",
+        "amount": "500 g"
+      },
+      {
+        "name": "Zwiebel(n)",
+        "amount": "1"
+      },
+      {
+        "name": "Knoblauchzehe(n)",
+        "amount": "1"
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Gemüse",
+        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+      },
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
+        "name": "Schnell",
+        "url": "/rs/s0t49/Schnell-Rezepte.html"
+      },
+      {
+        "name": "einfach",
+        "url": "/rs/s0t50/einfach-Rezepte.html"
+      },
+      {
+        "name": "Schwein",
+        "url": "/rs/s0t59/Schwein-Rezepte.html"
+      },
+      {
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
+      },
+      {
+        "name": "Ernährungskonzepte",
+        "url": "/rs/s0t6082/Ernaehrungskonzepte-Rezepte.html"
+      }
+    ]
+  },
+  {
     "name": "Spinatlasagne",
     "url": "https://www.chefkoch.de/rezepte/1231981228220302/Spinatlasagne.html",
     "ingredients": [
@@ -1824,122 +1924,6 @@
     ]
   },
   {
-    "name": "Hackbällchen-Auflauf mit Sauerkraut",
-    "url": "https://www.chefkoch.de/rezepte/4269921701187521/Hackbaellchen-Auflauf-mit-Sauerkraut.html?ck_source=search-recipe&ck_element=recipe_search_list",
-    "ingredients": [
-      {
-        "name": "Sauerkraut",
-        "amount": "500 g"
-      },
-      {
-        "name": "Zwiebel(n)",
-        "amount": "1"
-      },
-      {
-        "name": "Knoblauchzehe(n)",
-        "amount": "1"
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Gemüse",
-        "url": "/rs/s0t18/Gemuese-Rezepte.html"
-      },
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "Schnell",
-        "url": "/rs/s0t49/Schnell-Rezepte.html"
-      },
-      {
-        "name": "einfach",
-        "url": "/rs/s0t50/einfach-Rezepte.html"
-      },
-      {
-        "name": "Schwein",
-        "url": "/rs/s0t59/Schwein-Rezepte.html"
-      },
-      {
-        "name": "Käse",
-        "url": "/rs/s0t83/Kaese-Rezepte.html"
-      },
-      {
-        "name": "Ernährungskonzepte",
-        "url": "/rs/s0t6082/Ernaehrungskonzepte-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Toskanischer Hähnchen-Auflauf",
-    "url": "https://www.chefkoch.de/rezepte/472271140790423/Toskanischer-Haehnchen-Auflauf.html",
-    "ingredients": [
-      {
-        "name": "No ingredient name found",
-        "amount": "No ingredient amount found"
-      },
-      {
-        "name": "Olivenöl",
-        "amount": "3 EL"
-      },
-      {
-        "name": "Honig",
-        "amount": "1 EL"
-      },
-      {
-        "name": "Sojasauce",
-        "amount": "3 EL"
-      },
-      {
-        "name": "Chilisauce",
-        "amount": "3 EL"
-      },
-      {
-        "name": "Preiselbeeren (aus dem Glas)",
-        "amount": "1 TL"
-      },
-      {
-        "name": "Ketchup",
-        "amount": "3 EL"
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Gemüse",
-        "url": "/rs/s0t18/Gemuese-Rezepte.html"
-      },
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "Geflügel",
-        "url": "/rs/s0t58/Gefluegel-Rezepte.html"
-      },
-      {
-        "name": "Kartoffeln",
-        "url": "/rs/s0t138/Kartoffeln-Rezepte.html"
-      }
-    ]
-  },
-  {
     "name": "Cannelloni mit Spinat und Frischkäse",
     "url": "https://www.chefkoch.de/rezepte/1070391212579983/Cannelloni-mit-Spinat-und-Frischkaese.html",
     "ingredients": [
@@ -2024,82 +2008,6 @@
       {
         "name": "raffiniert oder preiswert",
         "url": "/rs/s0t48/raffiniert-oder-preiswert-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Zwiebel-Sahne-Hähnchen",
-    "url": "https://www.chefkoch.de/rezepte/382111124720277/Zwiebel-Sahne-Haehnchen.html",
-    "ingredients": [
-      {
-        "name": "Hühnerbrüste oder Putenbrustfilet",
-        "amount": "500 g"
-      },
-      {
-        "name": "Zwiebel(n)",
-        "amount": "350 g"
-      },
-      {
-        "name": "süße Sahne",
-        "amount": "200 ml"
-      },
-      {
-        "name": "Gemüsebrühe",
-        "amount": "150 ml"
-      },
-      {
-        "name": "Mehl",
-        "amount": "1 TL, gehäuft"
-      },
-      {
-        "name": "Salz und Pfeffer",
-        "amount": ""
-      },
-      {
-        "name": "Butter oder Margarine",
-        "amount": ""
-      },
-      {
-        "name": "Fett für die Form",
-        "amount": ""
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Fleisch",
-        "url": "/rs/s0t16/Fleisch-Rezepte.html"
-      },
-      {
-        "name": "Gemüse",
-        "url": "/rs/s0t18/Gemuese-Rezepte.html"
-      },
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "Saucen",
-        "url": "/rs/s0t34/Saucen-Rezepte.html"
-      },
-      {
-        "name": "Geflügel",
-        "url": "/rs/s0t58/Gefluegel-Rezepte.html"
-      },
-      {
-        "name": "ketogen",
-        "url": "/rs/s0t9947/ketogen-Rezepte.html"
-      },
-      {
-        "name": "Low Carb",
-        "url": "/rs/s0t9948/Low-Carb-Rezepte.html"
       }
     ]
   },
@@ -2404,58 +2312,6 @@
     ]
   },
   {
-    "name": "Penne mit Mandelbröseln",
-    "url": "https://www.chefkoch.de/rezepte/4159421664274190/Penne-mit-Mandelbroeseln.html?ck_source=search-recipe&ck_element=recipe_search_list",
-    "ingredients": [
-      {
-        "name": "Nudeln, kurze (z.B. Penne)",
-        "amount": "250 g"
-      },
-      {
-        "name": "Salz",
-        "amount": ""
-      },
-      {
-        "name": "Zwiebel(n)",
-        "amount": "1 kleine"
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Nudeln",
-        "url": "/rs/s0t24/Nudeln-Rezepte.html"
-      },
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "Pasta",
-        "url": "/rs/s0t31/Pasta-Rezepte.html"
-      },
-      {
-        "name": "Vegetarisch",
-        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
-      },
-      {
-        "name": "einfach",
-        "url": "/rs/s0t50/einfach-Rezepte.html"
-      },
-      {
-        "name": "Käse",
-        "url": "/rs/s0t83/Kaese-Rezepte.html"
-      }
-    ]
-  },
-  {
     "name": "Béchamel-Hackfleisch-Lasagne",
     "url": "https://www.chefkoch.de/rezepte/555661153310338/Bechamel-Hackfleisch-Lasagne.html",
     "ingredients": [
@@ -2560,6 +2416,58 @@
       {
         "name": "Schwein",
         "url": "/rs/s0t59/Schwein-Rezepte.html"
+      },
+      {
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
+      }
+    ]
+  },
+  {
+    "name": "Penne mit Mandelbröseln",
+    "url": "https://www.chefkoch.de/rezepte/4159421664274190/Penne-mit-Mandelbroeseln.html?ck_source=search-recipe&ck_element=recipe_search_list",
+    "ingredients": [
+      {
+        "name": "Nudeln, kurze (z.B. Penne)",
+        "amount": "250 g"
+      },
+      {
+        "name": "Salz",
+        "amount": ""
+      },
+      {
+        "name": "Zwiebel(n)",
+        "amount": "1 kleine"
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "Nudeln",
+        "url": "/rs/s0t24/Nudeln-Rezepte.html"
+      },
+      {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
+        "name": "Pasta",
+        "url": "/rs/s0t31/Pasta-Rezepte.html"
+      },
+      {
+        "name": "Vegetarisch",
+        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
+      },
+      {
+        "name": "einfach",
+        "url": "/rs/s0t50/einfach-Rezepte.html"
       },
       {
         "name": "Käse",
@@ -3040,6 +2948,98 @@
       {
         "name": "Käse",
         "url": "/rs/s0t83/Kaese-Rezepte.html"
+      },
+      {
+        "name": "Low Carb",
+        "url": "/rs/s0t9948/Low-Carb-Rezepte.html"
+      }
+    ]
+  },
+  {
+    "name": "Türkischer Hackfleischauflauf mit Schafskäse",
+    "url": "https://www.chefkoch.de/rezepte/1560161263457749/Tuerkischer-Hackfleischauflauf-mit-Schafskaese.html",
+    "ingredients": [
+      {
+        "name": "Schafskäse (Würfel in Öl, ca. 150 - 200 g)",
+        "amount": "1 Glas"
+      },
+      {
+        "name": "Rinderhackfleisch oder Lammhackfleisch",
+        "amount": "600 g"
+      },
+      {
+        "name": "Champignons, frische",
+        "amount": "500 g"
+      },
+      {
+        "name": "Paprikaschote(n), rote und grüne",
+        "amount": "2"
+      },
+      {
+        "name": "Knoblauchzehe(n)",
+        "amount": "2"
+      },
+      {
+        "name": "Crème fraîche",
+        "amount": "300 g"
+      },
+      {
+        "name": "Oregano, getrockneter",
+        "amount": "1 TL"
+      },
+      {
+        "name": "Schafskäse am Stück",
+        "amount": "100 g"
+      },
+      {
+        "name": "Salz und Pfeffer, frisch gemahlener",
+        "amount": ""
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Fleisch",
+        "url": "/rs/s0t16/Fleisch-Rezepte.html"
+      },
+      {
+        "name": "Gemüse",
+        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+      },
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "Rind",
+        "url": "/rs/s0t22/Rind-Rezepte.html"
+      },
+      {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
+        "name": "Party",
+        "url": "/rs/s0t45/Party-Rezepte.html"
+      },
+      {
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
+      },
+      {
+        "name": "Türkei",
+        "url": "/rs/s0t103/Tuerkei-Rezepte.html"
+      },
+      {
+        "name": "Pilze",
+        "url": "/rs/s0t140/Pilze-Rezepte.html"
+      },
+      {
+        "name": "ketogen",
+        "url": "/rs/s0t9947/ketogen-Rezepte.html"
       },
       {
         "name": "Low Carb",
@@ -3676,116 +3676,28 @@
     ]
   },
   {
-    "name": "Schneller Maultaschenauflauf mit Schinken-Käse-Sahnesauce",
-    "url": "https://www.chefkoch.de/rezepte/4356081737467911/Schneller-Maultaschenauflauf-mit-Schinken-Kaese-Sahnesauce.html",
+    "name": "Franzbrötchen",
+    "url": "https://www.chefkoch.de/rezepte/4041791623835825/Franzbroetchen.html",
     "ingredients": [
       {
-        "name": "BÜRGER Maultaschen traditionell schwäbisch",
-        "amount": "2 Pck."
+        "name": "HENGLEIN Frischer Blätterteig",
+        "amount": "1 Rolle(n)"
       },
       {
-        "name": "Schinkenwürfel",
-        "amount": "200 g"
+        "name": "Margarine, vegane, z. B. Alsan",
+        "amount": "2 EL"
       },
       {
-        "name": "Emmentaler, geriebener",
-        "amount": "200 g"
+        "name": "Äpfel (Braeburn, Elstar…)",
+        "amount": "2 m.-große"
       },
       {
-        "name": "Ei(er)",
-        "amount": "4"
-      },
-      {
-        "name": "Sahne",
-        "amount": "200 ml"
-      },
-      {
-        "name": "Salz und Pfeffer",
-        "amount": ""
-      },
-      {
-        "name": "Petersilie, frische, gehackt",
-        "amount": ""
-      },
-      {
-        "name": "Olivenöl",
-        "amount": "etwas"
-      },
-      {
-        "name": "Fett für die Form",
-        "amount": ""
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Nudeln",
-        "url": "/rs/s0t24/Nudeln-Rezepte.html"
-      },
-      {
-        "name": "Auflauf",
-        "url": "/rs/s0t30/Auflauf-Rezepte.html"
-      },
-      {
-        "name": "einfach",
-        "url": "/rs/s0t50/einfach-Rezepte.html"
-      },
-      {
-        "name": "Schwein",
-        "url": "/rs/s0t59/Schwein-Rezepte.html"
-      },
-      {
-        "name": "Käse",
-        "url": "/rs/s0t83/Kaese-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Lieblings-Pfannkuchen",
-    "url": "https://www.chefkoch.de/rezepte/4330381725885785/Lieblings-Pfannkuchen.html",
-    "ingredients": [
-      {
-        "name": "Wasser, heißes",
-        "amount": "150 ml"
-      },
-      {
-        "name": "Milch oder Haferdrink",
-        "amount": "150 ml"
-      },
-      {
-        "name": "Ei(er)",
-        "amount": "1"
-      },
-      {
-        "name": "Dinkelmehl Type 630 (ca. 15 EL)",
-        "amount": "180 g"
-      },
-      {
-        "name": "Backpulver",
-        "amount": "1 TL"
-      },
-      {
-        "name": "Sonnenblumenöl",
+        "name": "Zimt",
         "amount": "2 EL"
       },
       {
         "name": "Zucker",
-        "amount": "2 EL"
-      },
-      {
-        "name": "Vanillezucker",
-        "amount": "½ Pck."
-      },
-      {
-        "name": "Salz",
-        "amount": "1 Prise(n)"
+        "amount": "5 EL"
       }
     ],
     "category": {
@@ -3793,41 +3705,37 @@
       "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
     },
     "tags": [
+      {
+        "name": "Backen",
+        "url": "/rs/s0t23/Backen-Rezepte.html"
+      },
+      {
+        "name": "Europa",
+        "url": "/rs/s0t29/Europa-Rezepte.html"
+      },
       {
         "name": "Vegetarisch",
         "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
       },
       {
-        "name": "Schnell",
-        "url": "/rs/s0t49/Schnell-Rezepte.html"
-      },
-      {
         "name": "einfach",
         "url": "/rs/s0t50/einfach-Rezepte.html"
       },
       {
-        "name": "Frühstück",
-        "url": "/rs/s0t53/Fruehstueck-Rezepte.html"
+        "name": "Vegan",
+        "url": "/rs/s0t57/Vegan-Rezepte.html"
       },
       {
-        "name": "Braten",
-        "url": "/rs/s0t69/Braten-Rezepte.html"
+        "name": "Deutschland",
+        "url": "/rs/s0t65/Deutschland-Rezepte.html"
       },
       {
-        "name": "Snack",
-        "url": "/rs/s0t71/Snack-Rezepte.html"
+        "name": "Kuchen",
+        "url": "/rs/s0t92/Kuchen-Rezepte.html"
       },
       {
-        "name": "Dessert",
-        "url": "/rs/s0t90/Dessert-Rezepte.html"
-      },
-      {
-        "name": "Kinder",
-        "url": "/rs/s0t91/Kinder-Rezepte.html"
-      },
-      {
-        "name": "Mehlspeisen",
-        "url": "/rs/s0t100/Mehlspeisen-Rezepte.html"
+        "name": "Frucht",
+        "url": "/rs/s0t109/Frucht-Rezepte.html"
       }
     ]
   },
@@ -3948,44 +3856,28 @@
     ]
   },
   {
-    "name": "Lieblings-Pfannkuchen",
-    "url": "https://www.chefkoch.de/rezepte/4330381725885785/Lieblings-Pfannkuchen.html",
+    "name": "Kleine Kartoffel-Cordon Bleu",
+    "url": "https://www.chefkoch.de/rezepte/4315271719477485/Kleine-Kartoffel-Cordon-Bleu.html",
     "ingredients": [
       {
-        "name": "Wasser, heißes",
-        "amount": "150 ml"
+        "name": "HENGLEIN Kartoffelpufferteig",
+        "amount": "1 Pck."
       },
       {
-        "name": "Milch oder Haferdrink",
-        "amount": "150 ml"
+        "name": "Schinken",
+        "amount": "2 Scheibe/n"
       },
       {
-        "name": "Ei(er)",
-        "amount": "1"
+        "name": "Käse",
+        "amount": "8 Würfel"
       },
       {
-        "name": "Dinkelmehl Type 630 (ca. 15 EL)",
-        "amount": "180 g"
+        "name": "Paniermehl",
+        "amount": "100 g"
       },
       {
-        "name": "Backpulver",
-        "amount": "1 TL"
-      },
-      {
-        "name": "Sonnenblumenöl",
-        "amount": "2 EL"
-      },
-      {
-        "name": "Zucker",
-        "amount": "2 EL"
-      },
-      {
-        "name": "Vanillezucker",
-        "amount": "½ Pck."
-      },
-      {
-        "name": "Salz",
-        "amount": "1 Prise(n)"
+        "name": "Öl zum Frittieren",
+        "amount": ""
       }
     ],
     "category": {
@@ -3994,40 +3886,20 @@
     },
     "tags": [
       {
-        "name": "Vegetarisch",
-        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
-      },
-      {
-        "name": "Schnell",
-        "url": "/rs/s0t49/Schnell-Rezepte.html"
-      },
-      {
         "name": "einfach",
         "url": "/rs/s0t50/einfach-Rezepte.html"
-      },
-      {
-        "name": "Frühstück",
-        "url": "/rs/s0t53/Fruehstueck-Rezepte.html"
-      },
-      {
-        "name": "Braten",
-        "url": "/rs/s0t69/Braten-Rezepte.html"
       },
       {
         "name": "Snack",
         "url": "/rs/s0t71/Snack-Rezepte.html"
       },
       {
-        "name": "Dessert",
-        "url": "/rs/s0t90/Dessert-Rezepte.html"
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
       },
       {
-        "name": "Kinder",
-        "url": "/rs/s0t91/Kinder-Rezepte.html"
-      },
-      {
-        "name": "Mehlspeisen",
-        "url": "/rs/s0t100/Mehlspeisen-Rezepte.html"
+        "name": "Frittieren",
+        "url": "/rs/s0t134/Frittieren-Rezepte.html"
       }
     ]
   },
@@ -4120,44 +3992,60 @@
     ]
   },
   {
-    "name": "Feine Schupfnudelpfanne mit Kürbis",
-    "url": "https://www.chefkoch.de/rezepte/4337181729157293/Feine-Schupfnudelpfanne-mit-Kuerbis.html",
+    "name": "Schnelle Asia-Nudeln",
+    "url": "https://www.chefkoch.de/rezepte/4330391725887039/Schnelle-Asia-Nudeln.html",
     "ingredients": [
       {
-        "name": "HENGLEIN Feine Schupfnudeln",
-        "amount": "1 Pck."
+        "name": "Zuckerschote(n)",
+        "amount": "100 g"
       },
       {
-        "name": "Hokkaidokürbis(se)",
-        "amount": "600 g"
+        "name": "Paprikaschote(n), rote",
+        "amount": "1 kleine"
       },
       {
-        "name": "Champignons",
-        "amount": "300 g"
+        "name": "Karotte(n)",
+        "amount": "1"
       },
       {
-        "name": "Crème fraîche",
-        "amount": "50 g"
+        "name": "Ingwerwurzel (daumengroß)",
+        "amount": "1 Stück(e)"
       },
       {
-        "name": "Olivenöl",
-        "amount": ""
+        "name": "Knoblauchzehe(n)",
+        "amount": "2"
       },
       {
-        "name": "Butter",
-        "amount": ""
+        "name": "Frühlingszwiebel(n)",
+        "amount": "2"
       },
       {
-        "name": "Salz und Pfeffer, frisch gemahlener",
-        "amount": ""
+        "name": "Limette(n), Saft davon",
+        "amount": "1"
       },
       {
-        "name": "Paprikapulver",
-        "amount": ""
+        "name": "Peperoni, rote, alternativ Chilischote",
+        "amount": "1"
       },
       {
-        "name": "Petersilie",
-        "amount": "einige Stiele"
+        "name": "Reisbandnudeln",
+        "amount": "150 g"
+      },
+      {
+        "name": "Misopaste",
+        "amount": "4 EL"
+      },
+      {
+        "name": "Ahornsirup, alternativ brauner Zucker",
+        "amount": "2 EL"
+      },
+      {
+        "name": "Sesamöl",
+        "amount": "5 EL"
+      },
+      {
+        "name": "Sesam, schwarzer",
+        "amount": "2 EL"
       }
     ],
     "category": {
@@ -4174,20 +4062,120 @@
         "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
       },
       {
+        "name": "Nudeln",
+        "url": "/rs/s0t24/Nudeln-Rezepte.html"
+      },
+      {
+        "name": "Pasta",
+        "url": "/rs/s0t31/Pasta-Rezepte.html"
+      },
+      {
+        "name": "Vegetarisch",
+        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
+      },
+      {
+        "name": "Schnell",
+        "url": "/rs/s0t49/Schnell-Rezepte.html"
+      },
+      {
         "name": "einfach",
         "url": "/rs/s0t50/einfach-Rezepte.html"
       },
       {
-        "name": "Braten",
-        "url": "/rs/s0t69/Braten-Rezepte.html"
+        "name": "Wok",
+        "url": "/rs/s0t116/Wok-Rezepte.html"
+      }
+    ]
+  },
+  {
+    "name": "Kichererbsensalat mit Ofengemüse",
+    "url": "https://www.chefkoch.de/rezepte/4353281736341497/Kichererbsensalat-mit-Ofengemuese.html",
+    "ingredients": [
+      {
+        "name": "Rosenkohl",
+        "amount": "400 g"
       },
       {
-        "name": "Kartoffeln",
-        "url": "/rs/s0t138/Kartoffeln-Rezepte.html"
+        "name": "Blumenkohl",
+        "amount": "1"
       },
       {
-        "name": "Pilze",
-        "url": "/rs/s0t140/Pilze-Rezepte.html"
+        "name": "Süßkartoffel(n)",
+        "amount": "1"
+      },
+      {
+        "name": "Zwiebel(n), rote",
+        "amount": "2"
+      },
+      {
+        "name": "GUT BIO Natives Olivenöl extra, ca. 3-4 EL",
+        "amount": "3 EL"
+      },
+      {
+        "name": "Feldsalat",
+        "amount": "200 g"
+      },
+      {
+        "name": "KING’S CROWN Kichererbsen",
+        "amount": "1 Dose"
+      },
+      {
+        "name": "WONNEMEYER Hummus",
+        "amount": "200 g"
+      },
+      {
+        "name": "LYTTOS Joghurt griechischer Art, ca. 1-2 EL",
+        "amount": "1 EL"
+      },
+      {
+        "name": "LE GUSTO Paprikapulver",
+        "amount": "1 Prise(n)"
+      },
+      {
+        "name": "Kreuzkümmelpulver",
+        "amount": "1 Prise(n)"
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Salat",
+        "url": "/rs/s0t15/Salat-Rezepte.html"
+      },
+      {
+        "name": "Gemüse",
+        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+      },
+      {
+        "name": "Backen",
+        "url": "/rs/s0t23/Backen-Rezepte.html"
+      },
+      {
+        "name": "Vegetarisch",
+        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
+      },
+      {
+        "name": "raffiniert oder preiswert",
+        "url": "/rs/s0t48/raffiniert-oder-preiswert-Rezepte.html"
+      },
+      {
+        "name": "einfach",
+        "url": "/rs/s0t50/einfach-Rezepte.html"
+      },
+      {
+        "name": "Winter",
+        "url": "/rs/s0t64/Winter-Rezepte.html"
+      },
+      {
+        "name": "Kartoffel",
+        "url": "/rs/s0t68/Kartoffel-Rezepte.html"
+      },
+      {
+        "name": "Herbst",
+        "url": "/rs/s0t99/Herbst-Rezepte.html"
       }
     ]
   },
@@ -7644,184 +7632,48 @@
     ]
   },
   {
-    "name": "Knusprige Frühlingsrollen",
-    "url": "https://www.chefkoch.de/rezepte/4010911616160576/Knusprige-Fruehlingsrollen.html",
+    "name": "Karotten-Linsotto",
+    "url": "https://www.chefkoch.de/rezepte/4353271736340304/Karotten-Linsotto.html",
     "ingredients": [
       {
-        "name": "HENGLEIN Frischer Strudelteig (300 g)",
-        "amount": "1 Pck."
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Gemüse",
-        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+        "name": "Schalotte(n)",
+        "amount": "3"
       },
       {
-        "name": "Vorspeise",
-        "url": "/rs/s0t19/Vorspeise-Rezepte.html"
+        "name": "Karotte(n)",
+        "amount": "400 g"
       },
       {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+        "name": "GUT BIO Rote Linsen",
+        "amount": "300 g"
       },
-      {
-        "name": "Backen",
-        "url": "/rs/s0t23/Backen-Rezepte.html"
-      },
-      {
-        "name": "Vegetarisch",
-        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
-      },
-      {
-        "name": "warm",
-        "url": "/rs/s0t42/warm-Rezepte.html"
-      },
-      {
-        "name": "Vegan",
-        "url": "/rs/s0t57/Vegan-Rezepte.html"
-      },
-      {
-        "name": "Snack",
-        "url": "/rs/s0t71/Snack-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Smashed Potato Cups",
-    "url": "https://www.chefkoch.de/rezepte/4330441725889269/Smashed-Potato-Cups.html",
-    "ingredients": [
-      {
-        "name": "Drillinge (Mini-Kartoffeln)",
-        "amount": "12"
-      },
-      {
-        "name": "Gouda, geriebener",
-        "amount": "1 Pck."
-      },
-      {
-        "name": "Kräuter, z. B. Petersilie",
-        "amount": "1 Handvoll"
-      },
-      {
-        "name": "Tomatensauce oder Pizzasauce",
-        "amount": "12 EL"
-      },
-      {
-        "name": "Schinkenwürfel oder Speckwürfel",
-        "amount": "80 g"
-      },
-      {
-        "name": "Schmand oder Crème fraîche",
-        "amount": "½ Becher"
-      },
-      {
-        "name": "Meersalz",
-        "amount": "etwas"
-      },
-      {
-        "name": "Pflanzenöl",
-        "amount": "etwas"
-      }
-    ],
-    "category": {
-      "name": "Auflauf",
-      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
-    },
-    "tags": [
-      {
-        "name": "Gemüse",
-        "url": "/rs/s0t18/Gemuese-Rezepte.html"
-      },
-      {
-        "name": "Hauptspeise",
-        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
-      },
-      {
-        "name": "Backen",
-        "url": "/rs/s0t23/Backen-Rezepte.html"
-      },
-      {
-        "name": "Party",
-        "url": "/rs/s0t45/Party-Rezepte.html"
-      },
-      {
-        "name": "Schnell",
-        "url": "/rs/s0t49/Schnell-Rezepte.html"
-      },
-      {
-        "name": "einfach",
-        "url": "/rs/s0t50/einfach-Rezepte.html"
-      },
-      {
-        "name": "Fingerfood",
-        "url": "/rs/s0t52/Fingerfood-Rezepte.html"
-      },
-      {
-        "name": "Schwein",
-        "url": "/rs/s0t59/Schwein-Rezepte.html"
-      },
-      {
-        "name": "Snack",
-        "url": "/rs/s0t71/Snack-Rezepte.html"
-      },
-      {
-        "name": "Käse",
-        "url": "/rs/s0t83/Kaese-Rezepte.html"
-      },
-      {
-        "name": "Kartoffeln",
-        "url": "/rs/s0t138/Kartoffeln-Rezepte.html"
-      },
-      {
-        "name": "gekocht",
-        "url": "/rs/s0t144/gekocht-Rezepte.html"
-      }
-    ]
-  },
-  {
-    "name": "Vegane Pizzasuppe mit Sojahack und Mais",
-    "url": "https://www.chefkoch.de/rezepte/4353311736343128/Vegane-Pizzasuppe-mit-Sojahack-und-Mais.html",
-    "ingredients": [
       {
         "name": "Knoblauchzehe(n)",
         "amount": "2"
       },
       {
-        "name": "Zwiebel(n)",
-        "amount": "2"
-      },
-      {
         "name": "GUT BIO Bio-Natives Olivenöl extra",
-        "amount": "2 EL"
+        "amount": "1 EL"
       },
       {
-        "name": "MY VAY The Wonder Hack",
-        "amount": "2 Pck."
+        "name": "GUT BIO Bio-Butter",
+        "amount": "20 g"
       },
       {
-        "name": "Paprikaschote(n), rote",
-        "amount": "1"
+        "name": "Weißwein z.B. Bio-Cuvée Weiß QbA",
+        "amount": "80 ml"
       },
       {
-        "name": "Paprikaschote(n), gelbe",
-        "amount": "1"
-      },
-      {
-        "name": "KING’S CROWN Sonnenmais",
-        "amount": "1 Dose"
-      },
-      {
-        "name": "KING’S CROWN Tomaten fein gehackt",
-        "amount": "2 Dose/n"
-      },
-      {
-        "name": "GUT BIO Gemüsebrühe",
+        "name": "GUT BIO Bio-Gemüsebrühe im Glas, Sorte: Gemüse",
         "amount": "500 ml"
+      },
+      {
+        "name": "CUCINA NOBILE Parmigiano Reggiano",
+        "amount": "40 g"
+      },
+      {
+        "name": "NUR NUR NATUR Bio-Reibekäse",
+        "amount": "40 g"
       },
       {
         "name": "LE GUSTO Salz",
@@ -7832,23 +7684,15 @@
         "amount": ""
       },
       {
-        "name": "LE GUSTO Paprika, scharf",
+        "name": "LE GUSTO Muskatnuss",
         "amount": ""
       },
       {
-        "name": "LE GUSTO Oregano",
+        "name": "LE GUSTO Paprikapulver",
         "amount": ""
       },
       {
-        "name": "Champignons",
-        "amount": "200 g"
-      },
-      {
-        "name": "MY VAY Bio-Mandelghurt",
-        "amount": "3 EL"
-      },
-      {
-        "name": "Basilikum",
+        "name": "Petersilie",
         "amount": "8 Zweig/e"
       }
     ],
@@ -7866,62 +7710,50 @@
         "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
       },
       {
-        "name": "Vegetarisch",
-        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
+        "name": "Beilage",
+        "url": "/rs/s0t36/Beilage-Rezepte.html"
       },
       {
-        "name": "Party",
-        "url": "/rs/s0t45/Party-Rezepte.html"
-      },
-      {
-        "name": "raffiniert oder preiswert",
-        "url": "/rs/s0t48/raffiniert-oder-preiswert-Rezepte.html"
+        "name": "Reis",
+        "url": "/rs/s0t37/Reis-Rezepte.html"
       },
       {
         "name": "einfach",
         "url": "/rs/s0t50/einfach-Rezepte.html"
       },
       {
-        "name": "Vegan",
-        "url": "/rs/s0t57/Vegan-Rezepte.html"
-      },
-      {
-        "name": "Eintopf",
-        "url": "/rs/s0t81/Eintopf-Rezepte.html"
-      },
-      {
-        "name": "Pilze",
-        "url": "/rs/s0t140/Pilze-Rezepte.html"
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
       },
       {
         "name": "gekocht",
         "url": "/rs/s0t144/gekocht-Rezepte.html"
+      },
+      {
+        "name": "Hülsenfrüchte",
+        "url": "/rs/s0t165/Huelsenfruechte-Rezepte.html"
+      },
+      {
+        "name": "Getreide",
+        "url": "/rs/s0t1609/Getreide-Rezepte.html"
+      },
+      {
+        "name": "ReisGetreide",
+        "url": "/rs/s0t3818/ReisGetreide-Rezepte.html"
       }
     ]
   },
   {
-    "name": "Currysuppe mit Maultaschen",
-    "url": "https://www.chefkoch.de/rezepte/3740951568031314/Currysuppe-mit-Maultaschen.html",
+    "name": "Tagliatelle mit Gemüse und Hähnchen Asia Style",
+    "url": "https://www.chefkoch.de/rezepte/4337271729172220/Tagliatelle-mit-Gemuese-und-Haehnchen-Asia-Style.html",
     "ingredients": [
       {
-        "name": "BÜRGER Vegane Maultaschen, à 300 g",
-        "amount": "2 Pck."
+        "name": "HENGLEIN Frische Tagliatelle",
+        "amount": "1 Pck."
       },
       {
-        "name": "Knoblauchzehe(n)",
-        "amount": "2"
-      },
-      {
-        "name": "Zwiebel(n)",
-        "amount": "2 kleine"
-      },
-      {
-        "name": "Ingwer",
-        "amount": "1 Stück(e)"
-      },
-      {
-        "name": "Chili",
-        "amount": "1 Stück(e)"
+        "name": "Hähnchenfilet(s)",
+        "amount": "350 g"
       },
       {
         "name": "Zucchini",
@@ -7929,10 +7761,6 @@
       },
       {
         "name": "Karotte(n)",
-        "amount": "2"
-      },
-      {
-        "name": "Brokkoli",
         "amount": "1"
       },
       {
@@ -7940,36 +7768,36 @@
         "amount": "1"
       },
       {
-        "name": "Rapsöl",
-        "amount": "2 EL"
+        "name": "Lauchstange(n)",
+        "amount": "½"
       },
       {
-        "name": "Gemüsebrühe",
-        "amount": "400 ml"
+        "name": "Knoblauchzehe(n)",
+        "amount": "1"
       },
       {
-        "name": "Kokosmilch",
-        "amount": "2 Dose/n"
+        "name": "Koriander",
+        "amount": "4 Stängel"
+      },
+      {
+        "name": "Sojasauce",
+        "amount": "5 EL"
+      },
+      {
+        "name": "Teriyakisauce",
+        "amount": "5 EL"
+      },
+      {
+        "name": "Erdnüsse, geröstete",
+        "amount": ""
       },
       {
         "name": "Salz und Pfeffer",
         "amount": ""
       },
       {
-        "name": "Madras-Currypulver",
+        "name": "Koriander zum Garnieren",
         "amount": ""
-      },
-      {
-        "name": "Paprikapulver",
-        "amount": ""
-      },
-      {
-        "name": "Petersilie, frische",
-        "amount": "1 Bund"
-      },
-      {
-        "name": "Limette(n), Saft davon",
-        "amount": "2"
       }
     ],
     "category": {
@@ -7990,57 +7818,81 @@
         "url": "/rs/s0t24/Nudeln-Rezepte.html"
       },
       {
-        "name": "Vegetarisch",
-        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
+        "name": "Schnell",
+        "url": "/rs/s0t49/Schnell-Rezepte.html"
       },
       {
         "name": "einfach",
         "url": "/rs/s0t50/einfach-Rezepte.html"
       },
       {
-        "name": "Vegan",
-        "url": "/rs/s0t57/Vegan-Rezepte.html"
+        "name": "Geflügel",
+        "url": "/rs/s0t58/Gefluegel-Rezepte.html"
       },
       {
-        "name": "gekocht",
-        "url": "/rs/s0t144/gekocht-Rezepte.html"
+        "name": "Wok",
+        "url": "/rs/s0t116/Wok-Rezepte.html"
       }
     ]
   },
   {
-    "name": "Kürbis-Kartoffelpuffer mit Salat und Meerrettich-Dip",
-    "url": "https://www.chefkoch.de/rezepte/4332801727184786/Kuerbis-Kartoffelpuffer-mit-Salat-und-Meerrettich-Dip.html",
+    "name": "Süßkartoffel-Gnocchi-Auflauf",
+    "url": "https://www.chefkoch.de/rezepte/4281971705578210/Suesskartoffel-Gnocchi-Auflauf.html",
     "ingredients": [
       {
-        "name": "No ingredient name found",
-        "amount": "No ingredient amount found"
+        "name": "BÜRGER Süßkartoffel-Gnocchi",
+        "amount": "2 Pck."
       },
       {
-        "name": "Pflücksalat(e)",
-        "amount": "125 g"
-      },
-      {
-        "name": "Gurke(n)",
-        "amount": "½"
-      },
-      {
-        "name": "Cocktailtomaten",
-        "amount": "8"
-      },
-      {
-        "name": "Balsamico, heller, ca. 2 - 3 EL",
-        "amount": ""
-      },
-      {
-        "name": "Agavendicksaft",
-        "amount": "2 EL"
+        "name": "Süßkartoffel(n)",
+        "amount": "2"
       },
       {
         "name": "Olivenöl",
-        "amount": "3 EL"
+        "amount": "2 EL"
+      },
+      {
+        "name": "Baby-Spinat",
+        "amount": "250 g"
+      },
+      {
+        "name": "Zwiebel(n)",
+        "amount": "1 m.-große"
+      },
+      {
+        "name": "Knoblauchzehe(n)",
+        "amount": "1"
+      },
+      {
+        "name": "Ei(er)",
+        "amount": "2"
+      },
+      {
+        "name": "Sahne",
+        "amount": "200 g"
+      },
+      {
+        "name": "Parmesan, geriebener",
+        "amount": "50 g"
       },
       {
         "name": "Salz und Pfeffer",
+        "amount": ""
+      },
+      {
+        "name": "Kresse",
+        "amount": "2 EL"
+      },
+      {
+        "name": "Schnittlauch",
+        "amount": "1 kl. Bund"
+      },
+      {
+        "name": "Basilikum",
+        "amount": "½ Bund"
+      },
+      {
+        "name": "Olivenöl zum Braten",
         "amount": ""
       }
     ],
@@ -8050,10 +7902,6 @@
     },
     "tags": [
       {
-        "name": "Salat",
-        "url": "/rs/s0t15/Salat-Rezepte.html"
-      },
-      {
         "name": "Gemüse",
         "url": "/rs/s0t18/Gemuese-Rezepte.html"
       },
@@ -8062,28 +7910,20 @@
         "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
       },
       {
+        "name": "Auflauf",
+        "url": "/rs/s0t30/Auflauf-Rezepte.html"
+      },
+      {
         "name": "Vegetarisch",
         "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
-      },
-      {
-        "name": "Saucen",
-        "url": "/rs/s0t34/Saucen-Rezepte.html"
-      },
-      {
-        "name": "Dips",
-        "url": "/rs/s0t35/Dips-Rezepte.html"
       },
       {
         "name": "einfach",
         "url": "/rs/s0t50/einfach-Rezepte.html"
       },
       {
-        "name": "Braten",
-        "url": "/rs/s0t69/Braten-Rezepte.html"
-      },
-      {
-        "name": "Herbst",
-        "url": "/rs/s0t99/Herbst-Rezepte.html"
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
       },
       {
         "name": "Kartoffeln",
@@ -8092,48 +7932,60 @@
     ]
   },
   {
-    "name": "One-Pot-Spätzle mit Räuchertofu",
-    "url": "https://www.chefkoch.de/rezepte/3657421550672396/One-Pot-Spaetzle-mit-Raeuchertofu.html",
+    "name": "Schnelle Asia-Nudeln",
+    "url": "https://www.chefkoch.de/rezepte/4330391725887039/Schnelle-Asia-Nudeln.html",
     "ingredients": [
       {
-        "name": "HENGLEIN Frische Eierspätzle",
-        "amount": "1 Pck."
+        "name": "Zuckerschote(n)",
+        "amount": "100 g"
       },
       {
-        "name": "Baby-Blattspinat",
-        "amount": "300 g"
+        "name": "Paprikaschote(n), rote",
+        "amount": "1 kleine"
       },
       {
-        "name": "Champignons",
-        "amount": "250 g"
+        "name": "Karotte(n)",
+        "amount": "1"
       },
       {
-        "name": "Räuchertofu",
-        "amount": "200 g"
+        "name": "Ingwerwurzel (daumengroß)",
+        "amount": "1 Stück(e)"
       },
       {
-        "name": "Pflanzenöl",
-        "amount": "1 EL"
+        "name": "Knoblauchzehe(n)",
+        "amount": "2"
       },
       {
-        "name": "Röstzwiebeln",
-        "amount": "3 EL"
+        "name": "Frühlingszwiebel(n)",
+        "amount": "2"
       },
       {
-        "name": "Brühe",
-        "amount": "80 ml"
+        "name": "Limette(n), Saft davon",
+        "amount": "1"
       },
       {
-        "name": "Sahne",
-        "amount": "200 ml"
+        "name": "Peperoni, rote, alternativ Chilischote",
+        "amount": "1"
       },
       {
-        "name": "Salz und Pfeffer, frisch gemahlen",
-        "amount": ""
+        "name": "Reisbandnudeln",
+        "amount": "150 g"
       },
       {
-        "name": "Mozzarella, gerieben",
-        "amount": "50 g"
+        "name": "Misopaste",
+        "amount": "4 EL"
+      },
+      {
+        "name": "Ahornsirup, alternativ brauner Zucker",
+        "amount": "2 EL"
+      },
+      {
+        "name": "Sesamöl",
+        "amount": "5 EL"
+      },
+      {
+        "name": "Sesam, schwarzer",
+        "amount": "2 EL"
       }
     ],
     "category": {
@@ -8170,12 +8022,180 @@
         "url": "/rs/s0t50/einfach-Rezepte.html"
       },
       {
-        "name": "Dünsten",
-        "url": "/rs/s0t107/Duensten-Rezepte.html"
+        "name": "Wok",
+        "url": "/rs/s0t116/Wok-Rezepte.html"
+      }
+    ]
+  },
+  {
+    "name": "Ofen-Schupfnudeln mit Kürbis und Brokkoli",
+    "url": "https://www.chefkoch.de/rezepte/4337201729158142/Ofen-Schupfnudeln-mit-Kuerbis-und-Brokkoli.html",
+    "ingredients": [
+      {
+        "name": "HENGLEIN Schupfnudeln",
+        "amount": "1 Pck."
       },
       {
-        "name": "Pilze",
-        "url": "/rs/s0t140/Pilze-Rezepte.html"
+        "name": "Hokkaidokürbis(se)",
+        "amount": "250 g"
+      },
+      {
+        "name": "Brokkoli",
+        "amount": "250 g"
+      },
+      {
+        "name": "Zwiebel(n)",
+        "amount": "1"
+      },
+      {
+        "name": "Emmentaler, geriebener",
+        "amount": "125 g"
+      },
+      {
+        "name": "Öl",
+        "amount": "etwas"
+      },
+      {
+        "name": "Salz und Pfeffer",
+        "amount": ""
+      },
+      {
+        "name": "Paprikapulver",
+        "amount": ""
+      },
+      {
+        "name": "Kräuterquark",
+        "amount": "n. B."
+      },
+      {
+        "name": "Kürbiskerne",
+        "amount": "n. B."
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Gemüse",
+        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+      },
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "einfach",
+        "url": "/rs/s0t50/einfach-Rezepte.html"
+      },
+      {
+        "name": "Winter",
+        "url": "/rs/s0t64/Winter-Rezepte.html"
+      },
+      {
+        "name": "Käse",
+        "url": "/rs/s0t83/Kaese-Rezepte.html"
+      },
+      {
+        "name": "Herbst",
+        "url": "/rs/s0t99/Herbst-Rezepte.html"
+      },
+      {
+        "name": "Überbacken",
+        "url": "/rs/s0t137/Ueberbacken-Rezepte.html"
+      },
+      {
+        "name": "Kartoffeln",
+        "url": "/rs/s0t138/Kartoffeln-Rezepte.html"
+      }
+    ]
+  },
+  {
+    "name": "Ofentomaten mit Couscous",
+    "url": "https://www.chefkoch.de/rezepte/4353291736342301/Ofentomaten-mit-Couscous.html",
+    "ingredients": [
+      {
+        "name": "Kirschtomate(n)",
+        "amount": "500 g"
+      },
+      {
+        "name": "SCHNEEKOPPE Bio-Couscous",
+        "amount": "250 g"
+      },
+      {
+        "name": "GUT BIO Bio-Natives Olivenöl extra",
+        "amount": "3 EL"
+      },
+      {
+        "name": "LE GUSTO Salz",
+        "amount": ""
+      },
+      {
+        "name": "LE GUSTO Pfeffer",
+        "amount": ""
+      },
+      {
+        "name": "LE GUSTO Gemüsebrühe",
+        "amount": ""
+      },
+      {
+        "name": "Zwiebel(n), rote",
+        "amount": "1"
+      },
+      {
+        "name": "Knoblauchzehe(n)",
+        "amount": "2"
+      },
+      {
+        "name": "Paprikaschote(n), rote",
+        "amount": "1"
+      },
+      {
+        "name": "LE GUSTO Paprika, edelsüß",
+        "amount": "1 TL"
+      },
+      {
+        "name": "Basilikum",
+        "amount": "8 Zweig/e"
+      }
+    ],
+    "category": {
+      "name": "Auflauf",
+      "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html"
+    },
+    "tags": [
+      {
+        "name": "Gemüse",
+        "url": "/rs/s0t18/Gemuese-Rezepte.html"
+      },
+      {
+        "name": "Hauptspeise",
+        "url": "/rs/s0t21/Hauptspeise-Rezepte.html"
+      },
+      {
+        "name": "Vegetarisch",
+        "url": "/rs/s0t32/Vegetarisch-Rezepte.html"
+      },
+      {
+        "name": "Reis",
+        "url": "/rs/s0t37/Reis-Rezepte.html"
+      },
+      {
+        "name": "einfach",
+        "url": "/rs/s0t50/einfach-Rezepte.html"
+      },
+      {
+        "name": "Vegan",
+        "url": "/rs/s0t57/Vegan-Rezepte.html"
+      },
+      {
+        "name": "gekocht",
+        "url": "/rs/s0t144/gekocht-Rezepte.html"
+      },
+      {
+        "name": "Getreide",
+        "url": "/rs/s0t1609/Getreide-Rezepte.html"
       }
     ]
   }

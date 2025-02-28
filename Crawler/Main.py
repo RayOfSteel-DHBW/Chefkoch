@@ -1,5 +1,4 @@
 
-from ChefkochAPI import ChefkochAPI
 from ChefkochCrawler import ChefkochCrawler
 
 from ChefkochDataService import ChefkochDataService
@@ -17,10 +16,9 @@ def main() -> None:
 
 
 def InitializeCrawler():
-    dbPath = r"..\Data\chefkoch.db"
-    dataService = ChefkochDataService(dbPath)
-    api = ChefkochAPI() 
-    crawler = ChefkochCrawler(api, dataService)
+ 
+    dataService = ChefkochDataService()
+    crawler = ChefkochCrawler(dataService)
     return crawler
 
 if __name__ == "__main__":

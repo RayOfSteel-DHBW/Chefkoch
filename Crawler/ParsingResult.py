@@ -1,16 +1,15 @@
 from dataclasses import dataclass
-from typing import TypeVar, Generic, List
+from typing import List
 
-# Define a type variable that's constrained to ChefkochEntityModel or its subclasses
-T = TypeVar('T', bound=ChefkochEntityModel)
+from ChefkochDataService import ChefkochEntityModel
 
 @dataclass
-class ParsingResult(Generic[T]):
-    def __init__(self):
-        self.entity = None
+class ParsingResult():
+    def __init__(self, entity):
+        self.entity = entity
         self.foundRecipes = []
         self.foundCategories = []
 
-    entity: T
+    entity: ChefkochEntityModel
     foundRecipes: List[str]
     foundCategories: List[str]

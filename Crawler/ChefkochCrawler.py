@@ -1,21 +1,19 @@
 from collections import deque
 import requests
 from ContentParser import ContentParser
-from ChefkochDataService import ChefkochDataService
-from ChefkochModels import RecipeModel, CategoryModel, IngredientModel
+from ChefkochDataService import CategoryModel, RecipeModel
 from ParsingResult import ParsingResult
 
 class ChefkochCrawler:
-    def __init__(self, api, dataService):
-        self.data_service = dataService
-        self.api = api
+    def __init__(self, data_service):
+        self.data_service = data_service
         self.content_parser = ContentParser()
         self.url_queue = deque()
         self.visited_urls = set()
         self.fallback_url = "https://www.chefkoch.de/rezepte/"
         
     def run(self)->bool:
-        initial_categories = self.data_service.getCategories()
+        initial_categories = self.data_service.get_categories()
         if initial_categories:
             for category in initial_categories:
                 self.url_queue.enqueue_entity(category.url)
@@ -53,7 +51,7 @@ class ChefkochCrawler:
             
     def enqueue_results(self, result:ParsingResult):
         """Add found entities to the queue if they are not already visited"""
-        for entity in result.
+        for entity in result.foundCategories + result.foundRecipes:
             if entity.url and entity.url not in self.visited_urls:
                 self.url_queue.append(entity.url)
             

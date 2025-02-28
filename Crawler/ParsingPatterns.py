@@ -1,5 +1,5 @@
 from PatternBase import PatternBase
-from ChefkochModels import IngredientModel, CategoryModel, RecipeModel
+from ChefkochDataService import IngredientModel, CategoryModel, RecipeModel
 
 class CategoryTagPattern(PatternBase):
     def __init__(self):
@@ -9,14 +9,13 @@ class CategoryTagPattern(PatternBase):
         
     def reset(self):
         super().reset()
-        self.state = 0
         self.tagBuffer = ""
         self.urlBuffer = ""
         self.nameBuffer = ""
         self.idBuffer = ""
         self.extractingName = False
         
-    def check_pattern(self, character):
+    def check_pattern(self, character, is_recipe):
         # State 0: Looking for start of anchor tag with href
         if self.state == 0:
             self.tagBuffer += character
@@ -81,7 +80,7 @@ class CategoryTagPattern(PatternBase):
                     category = CategoryModel(name=name, url=url, external_id=category_id)
                     
                     # Add category to the recipe's categories
-                    if self.result and isinstance(self.result.entity, RecipeModel):
+                    if self.result and is_recipe:
                         self.result.entity.categories.append(category)
                         # Also add to foundCategories for crawling
                         self.result.foundCategories.append(url)
