@@ -40,7 +40,7 @@ class ChefkochCrawler:
             parsingResult = self.content_parser.parse(content, entity, is_recipe)
             self.enqueue_results(parsingResult)
             if parsingResult:
-                self.data_service.Create_Entity(parsingResult, is_recipe)
+                self.data_service.create_entity(parsingResult, is_recipe)
 
             else:
                 print(f"Unable to process {url}")
@@ -48,7 +48,7 @@ class ChefkochCrawler:
     def enqueue_results(self, result:ParsingResult):
         """Add found entities to the queue if they are not already visited"""
         for entity in result.foundCategories + result.foundRecipes:
-            if entity.url and entity.url not in self.visited_urls:
+            if entity.url not in self.visited_urls:
                 self.url_queue.append(entity.url)
             
             

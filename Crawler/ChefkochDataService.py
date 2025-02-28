@@ -43,8 +43,9 @@ class ChefkochDataService:
     def create_entity(self, entity, is_recipe):
         with db.atomic():  # context manager to avoid half finished entries
             if is_recipe:
-                # Assuming entity is a RecipeModel instance
                 recipe = RecipeModel.create(name=entity.name, url=entity.url)
+                recipe.save()
+                
                 for ingredient in entity.ingredients:
                     ingredient_model, created = IngredientModel.get_or_create(name=ingredient.name)
                     recipe.ingredients.add(ingredient_model, through_defaults={'amount': ingredient.amount})

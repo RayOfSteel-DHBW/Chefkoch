@@ -1,5 +1,6 @@
 import re
 from bs4 import BeautifulSoup
+from ChefkochDataService import IngredientModel, CategoryModel, RecipeModel
 from ParsingResult import ParsingResult
 
 class ContentParser():
@@ -13,19 +14,14 @@ class ContentParser():
             entity.url = entity.url
             entity.categories = self.rs_pattern.findall(content)
             entity.ingredients = self.parse_ingredients_table(content)
-        result = ParsingResult(entity)
-        result.foundCategories = self.rs_pattern.findall(content)
-        result.foundRecipes = self.rezepte_pattern.findall(content)
+            entity.rating = self.parse_average_rating(content)
         result = ParsingResult(entity)
         
         rs_matches = self.rs_pattern.findall(content)
         rezepte_matches = self.rezepte_pattern.findall(content)
         
-        for match in rs_matches:
-            result.add_match('rs', match)
-        
-        for match in rezepte_matches:
-            result.add_match('rezepte', match)
+        result.foundCategories = [CategoryModel(url=f"https://www.chefkoch.de{match[0]}") for match in rs_matches]
+        result.foundRecipes = [RecipeModel(url=f"https://www.chefkoch.de{match[0]}") for match in rezepte_matches]
         
         return result
 
@@ -41,15 +37,15 @@ class ContentParser():
                 if len(cols) == 2:
                     quantity = cols[0].get_text(strip=True)
                     ingredient = cols[1].get_text(strip=True)
-                    ingredients.append((quantity, ingredient))
+                    ingredients.append(IngredientModel(name=ingredient, amount=quantity))
         
         return ingredients
-    
+
     def find_first_h1(self, content):
         soup = BeautifulSoup(content, 'html.parser')
         h1 = soup.find('h1')
         return h1.get_text(strip=True) if h1 else None
-    
+
     def parse_average_rating(self, content):
         soup = BeautifulSoup(content, 'html.parser')
         rating_div = soup.find('div', {'class': 'ds-rating-avg'})
