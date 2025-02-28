@@ -1,6 +1,6 @@
 from peewee import Model, CharField, IntegerField, ManyToManyField, SqliteDatabase
 from pathlib import Path
-import os
+
 
 db_path = Path(r'..\Data\crawled_data.db')
 # Ensure the data directory exists

@@ -18,7 +18,7 @@ class ContentParser():
             RecipeTitlePattern()
         ]
             
-    def parse(self, content, entity, is_recipe) -> ParsingResult:
+    def parse(self, content, entity, is_recipe):
 
         result = ParsingResult(entity)
         # Add recipe patterns if needed
@@ -29,6 +29,4 @@ class ContentParser():
         # Process character by character
         for character in content:                
             for pattern in usedPatterns:
-                result = pattern.check_character(character, result)
-        
-        return result
+                pattern.check_character(character, result)

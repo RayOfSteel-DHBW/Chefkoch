@@ -29,7 +29,7 @@ class TestContentParser(unittest.TestCase):
         self.loadFile('recipe-test')
         entity = RecipeModel(url="https://www.chefkoch.de/rezepte/644981165672475/Das-beste-Kartoffelgratin.html")
         # Test parsing for recipe URLs
-        result = self.parser.parse(self.html_content, entity, is_Recipe=True)
+        result = self.parser.parse(self.html_content, entity, is_recipe=True)
         assert isinstance(result, ParsingResult)
         assert isinstance(result.entity, RecipeModel)
         assert(result.entity.name == "Das beste Kartoffelgratin")
@@ -37,7 +37,8 @@ class TestContentParser(unittest.TestCase):
     
     def test_parse_empty_content(self):
         # Test with empty content
-        result = self.parser.parse("", is_recipe=False)
+        category = CategoryModel()
+        result = self.parser.parse("", ParsingResult(category), is_recipe=False)
         
         # Verify the result
         self.assertIsInstance(result, ParsingResult)

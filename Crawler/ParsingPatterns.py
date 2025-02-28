@@ -15,7 +15,7 @@ class CategoryTagPattern(PatternBase):
         self.idBuffer = ""
         self.extractingName = False
         
-    def check_pattern(self, character, is_recipe):
+    def check_pattern(self, character, result):
         # State 0: Looking for start of anchor tag with href
         if self.state == 0:
             self.tagBuffer += character
@@ -80,11 +80,10 @@ class CategoryTagPattern(PatternBase):
                     category = CategoryModel(name=name, url=url, external_id=category_id)
                     
                     # Add category to the recipe's categories
-                    if self.result and is_recipe:
+                    if self.result and isinstance(self.result.entity, RecipeModel):
                         self.result.entity.categories.append(category)
                         # Also add to foundCategories for crawling
                         self.result.foundCategories.append(url)
-                        
                     self.state = -1
                 except ValueError:
                     self.reset()
@@ -115,7 +114,7 @@ class IngredientTablePattern(PatternBase):
         self.tagBuffer = ""
         self.extractMode = False
         
-    def check_pattern(self, character, is_recipe):
+    def check_pattern(self, character, result):
         # States 0-1 remain unchanged
         if self.state == 0:
             self.tableBuffer += character
@@ -232,7 +231,7 @@ class CategoryPattern(PatternBase):
         self.state = 0
         self.htmlBuffer = ""
 
-    def check_pattern(self, character, is_recipe):
+    def check_pattern(self, character, result):
         if self.state == 0:
             self.content += character
             if self.fixedStart[len(self.content)] == character:
@@ -334,7 +333,7 @@ class RecipeTitlePattern(PatternBase):
         self.nameBuffer = ""
         self.extractingName = False
         
-    def check_pattern(self, character, is_recipe):
+    def check_pattern(self, character, result):
         # State 0: Looking for start of title tag
         if self.state == 0:
             self.tagBuffer += character

@@ -14,14 +14,17 @@ class PatternBase(ABC):
 
     # This is where patterns change their state
     @abstractmethod
-    def check_pattern(self, character):
+    def check_pattern(self, character, parsingResult):
         raise NotImplementedError("Subclasses must implement this method")
-    
     #workaround for unicode characters
     def check_unicode(self, character):
         if(character == '\\'):
             self.trackingUnicode = True
         if(self.trackingUnicode):
+            if(len(self.unicodeBuffer) == 1):
+                if(character != 'u'):
+                    self.reset()
+                    return None
             self.unicodeBuffer += character
             if len(self.unicodeBuffer) == 4:
                 try:
@@ -45,11 +48,4 @@ class PatternBase(ABC):
         except Exception as e:
             self.reset()
             print(f"An error occurred: {e}")
-    
-    @property
-    def InternalState(self)->bool:
-        return self.state
-
-    @property
-    def Content(self):
-        return self.content
+        return parsingResult

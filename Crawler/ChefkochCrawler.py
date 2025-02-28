@@ -22,15 +22,11 @@ class ChefkochCrawler:
             self.url_queue.append(self.fallback_url)
         
         while len(self.url_queue) > 0:
-            try:
-                url = self.url_queue.popleft()
-                if url in self.visited_urls:
-                    continue
-                self.process_page(url)
-                
-            except Exception as e:
-                print(f"Error processing {url}:\n{e}")
+            url = self.url_queue.popleft()
+            if url in self.visited_urls:
                 continue
+            self.process_page(url)
+            continue
         
     def process_page(self, url):
         """Process a page for info/links it contains"""
