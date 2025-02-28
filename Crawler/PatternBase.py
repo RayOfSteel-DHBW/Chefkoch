@@ -7,6 +7,7 @@ class PatternBase(ABC):
         self.content = ""
         self.state = 0
         self.trackingUnicode = False
+        self.unicodeBuffer = ""
     
     def __init__(self):
         self.reset()
@@ -29,25 +30,17 @@ class PatternBase(ABC):
                 except ValueError:
                     self.reset()
                     return None
-                self.trackingUnicode = False
             else:
                 return None
         
-    def check_character(self, character, parsingResult)->str:
+    def check_character(self, character, parsingResult):
         unicodeCharacter = self.check_unicode(character)
         if(unicodeCharacter):
             character = unicodeCharacter
-        if self.check_pattern(character):
+        if self.check_pattern(character, parsingResult):
             self.content += character
-            if self.state == -1:
-                result = self.content
-                self.reset()
-                return result
-            else:
-                return ""
         else:
             self.reset()
-            return ""
     
     @property
     def InternalState(self)->bool:
@@ -56,13 +49,3 @@ class PatternBase(ABC):
     @property
     def Content(self):
         return self.content
-
-    def add_entity(self, entity):
-        """Add an entity to the collection"""
-        self.collected_entities.append(entity)
-        
-    def get_collected_entities(self):
-        """Return and clear the collected entities"""
-        entities = self.collected_entities.copy()
-        self.collected_entities = []
-        return entities

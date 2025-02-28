@@ -1,4 +1,3 @@
-from turtle import reset
 from PatternBase import PatternBase
 from ChefkochModels import IngredientModel, CategoryModel, RecipeModel
 
@@ -228,7 +227,7 @@ class CategoryPattern(PatternBase):
     def __init__(self):
         self.fixedStart = "rs/"
         self.fixedEnd = "html"
-        reset()
+        self.reset()
 
     def reset(self):
         super().reset()
@@ -286,7 +285,7 @@ class RezeptePattern(PatternBase):
         self.state = 0
         self.htmlBuffer = ""
 
-    def check_pattern(self, character):
+    def check_pattern(self, character, result):
         if self.state == 0:
             if(self.fixedStart[len(self.content)] == character):
                 self.content += character
@@ -319,13 +318,8 @@ class RezeptePattern(PatternBase):
                 return True
             if(self.htmlBuffer == self.fixedEnd):
                 self.content += self.htmlBuffer
-                self.state = -1
-                return True
-        # When we reach the end state
-        elif self.state == -1:
-            # Add URL to foundRecipes for crawling
-            if self.result and self.content:
-                self.result.foundRecipes.append(self.content)
+                result.foundRecipes.append(self.content)
+                return False
             return True
         return False
 

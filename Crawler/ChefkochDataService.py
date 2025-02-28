@@ -1,108 +1,61 @@
-from typing import Type, TypeVar, List, Optional
-from peewee import SqliteDatabase, Model, DoesNotExist
+from peewee import Model, CharField, IntegerField, ManyToManyField, SqliteDatabase
+from pathlib import Path
+db_path = Path(r'..\Data\crawled_data.db')
+# Ensure the data directory exists
+ 
+# Initialize database
+db = SqliteDatabase(str(db_path),
+                    pragmas={'journal_mode': 'wal'})
 
-from ChefkochModels import (
-    CategoryModel, RecipeModel, IngredientModel,
-    RecipeIngredient, RecipeCategory
-)
+def init_tables():
+    if not db_path.exists():
+        RecipeIngredient = RecipeModel.ingredients.get_through_model()
+        RecipeCategory = RecipeModel.categories.get_through_model()
 
-# Define a generic type for models
-T = TypeVar("T", bound=Model)
+    db.create_tables([IngredientModel, CategoryModel, RecipeModel, 
+                     RecipeIngredient, RecipeCategory], safe=True)
+    db.connect(reuse_if_open=True)
+    
+class ChefkochObjectModel(Model):
+    name = CharField()
+    class Meta:
+        database = db
+        abstract = True
+
+class ChefkochEntityModel(ChefkochObjectModel):
+    url = CharField(null=True)
+    class Meta:
+        abstract = True
+
+class IngredientModel(ChefkochObjectModel):
+    amount = CharField()
+
+class CategoryModel(ChefkochEntityModel):
+    external_id = IntegerField()
+    current_page = IntegerField(default=0)
+    max_page = IntegerField(default=1)
+        
+
+class RecipeModel(ChefkochEntityModel):
+    ingredients = ManyToManyField(IngredientModel, backref='recipes')
+    categories = ManyToManyField(CategoryModel, backref='recipes')
+
 
 class ChefkochDataService:
-    def __init__(self, db_path: str):
-        self.db = SqliteDatabase(db_path)
-        
-        models = [CategoryModel, RecipeModel, IngredientModel, RecipeIngredient, RecipeCategory]
-        for model in models:
-            model._meta.database = self.db
-        
-        self.db.connect(reuse_if_open=True)
-        self.db.create_tables(models)
-        self._initialize_categories()
-
-    def _initialize_categories(self):
-        """Add default categories if they don't exist."""
-        DEFAULT_CATEGORIES = [
-            {"name": "Auflauf", 
-             "url": "https://www.chefkoch.de/rs/s0t30/Auflauf-Rezepte.html", 
-             "external_id": 30, "current_page": 0, "max_page": 1},
-            {"name": "Pizza",
-             "url": "https://www.chefkoch.de/rs/s0t82/Pizza-Rezepte.html",
-             "external_id": 82, "current_page": 0, "max_page": 1},
-            {"name": "Kuchen", "url": "https://www.chefkoch.de/rs/s0t78/Kuchen-Rezepte.html", "external_id": 78, "current_page": 0, "max_page": 1},
-        ]  # Add more if needed
-        
-        for cat_data in DEFAULT_CATEGORIES:
-            CategoryModel.get_or_create(name=cat_data['name'], defaults=cat_data)
-
-    def create_or_update_entity(self, entity: T) -> bool:
-        """Creates or updates an entity, returns True if a new entity was created."""
-        obj, created = entity.__class__.get_or_create(name=entity.name, defaults={"url": getattr(entity, 'url', None)})
-        if not created and hasattr(entity, 'url'):
-            obj.url = entity.url
-            obj.save()
-        return created
-    
-    def getCategories(self) -> List[CategoryModel]:
-        """Returns all categories."""
-        return list(CategoryModel.select())
-    
-    def create(self, entity: T) -> None:
-        """Generic create method."""
-        entity.save()
-    
-    def read(self, entity_type: Type[T], entity_id: int) -> Optional[T]:
-        """Generic read method."""
-        try:
-            return entity_type.get_by_id(entity_id)
-        except DoesNotExist:
-            return None
-    
-    def update(self, entity: T) -> None:
-        """Generic update method."""
-        entity.save()
-    
-    def delete(self, entity_type: Type[T], entity_id: int) -> None:
-        """Generic delete method."""
-        try:
-            entity = entity_type.get_by_id(entity_id)
-            entity.delete_instance()
-        except DoesNotExist:
-            pass
-
-    def create_recipe_with_relations(self, recipe_data: dict, ingredients: List[IngredientModel], categories: List[CategoryModel]) -> RecipeModel:
-        """Create a recipe with its ingredients and categories relationships"""
-        recipe = RecipeModel.create(**recipe_data)
-        
-        # Add ingredient relationships
-        for ingredient in ingredients:
-            recipe.ingredients.add(ingredient)
-            
-        # Add category relationships
-        for category in categories:
-            recipe.categories.add(category)
-            
-        return recipe
-            
-    def exists(self, entity_type: Type[T], entity_id: int) -> bool:
-        """Check if an entity with the given ID exists."""
-        return entity_type.select().where(entity_type.id == entity_id).exists()
-
-if __name__ == "__main__":
-    service = ChefkochDataService("chefkoch.db")
-    
-    # Example: Create a new category
-    new_category = CategoryModel(name="TestCategory", url="https://example.com", external_id=999)
-    service.create(new_category)
-    
-    # Verify category exists
-    print("Category exists:", service.exists(CategoryModel, new_category.id))
-    
-    # Read and print category
-    retrieved_category = service.read(CategoryModel, new_category.id)
-    print("Retrieved Category:", retrieved_category.name if retrieved_category else "Not found")
-    
-    # Delete the category
-    service.delete(CategoryModel, new_category.id)
-    print("Category deleted.")
+    def __init__(self):
+        # Initialize any necessary resources, such as database connections
+        pass
+    def create_entity(self, entity, is_recipe):
+        with db.atomic():  # Use a context manager to handle the transaction
+            if is_recipe:
+                # Assuming entity is a RecipeModel instance
+                recipe = RecipeModel.create(name=entity.name, url=entity.url)
+                for ingredient in entity.ingredients:
+                    ingredient_model, created = IngredientModel.get_or_create(name=ingredient.name)
+                    recipe.ingredients.add(ingredient_model, through_defaults={'amount': ingredient.amount})
+                for category in entity.categories:
+                    category_model, created = CategoryModel.get_or_create(name=category.name, external_id=category.external_id)
+                    recipe.categories.add(category_model)
+            else:
+                CategoryModel.create(name=entity.name, url=entity.url, external_id=entity.external_id)
+            db.commit()

@@ -1,4 +1,3 @@
-from ChefkochContracts import Ingredient, Category, Recipe
 from ContentParser import ContentParser
 from ParsingResult import ParsingResult
 
@@ -15,7 +14,6 @@ class ChefkochAPI:
             return ContentParser.Parse(page_content, False)
         elif isinstance(entity, Recipe):
             return ContentParser.Parse(page_content, True)
-        
 
     def _get_page_content(self, entity)->str:
         """Fetches the page content for a given entity."""

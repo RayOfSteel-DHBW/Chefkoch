@@ -2,7 +2,6 @@ import unittest
 import os
 from Crawler.ContentParser import ContentParser
 from Crawler.ParsingResult import ParsingResult
-from Crawler.ChefkochModels import CategoryModel, RecipeModel
 
 class TestContentParser(unittest.TestCase):
     def setUp(self):

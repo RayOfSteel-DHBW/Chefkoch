@@ -1,33 +1,32 @@
-from ChefkochModels import CategoryModel, RecipeModel
-from PatternBase import PatternBase
 from ParsingPatterns import (
     CategoryPattern, RezeptePattern, CategoryTagPattern, 
     IngredientTablePattern, RecipeTitlePattern
 )
-from ChefkochContracts import Category, Recipe
 from ParsingResult import ParsingResult
 
 class ContentParser():
     def __init__(self):
         # Basic patterns that just return strings
-        self.patterns = [CategoryPattern(), RezeptePattern()]
+        self.patterns = [
+            CategoryPattern(), 
+            RezeptePattern()]
         
-        # Entity-producing patterns
+        # Gets linked categories and ingredients as well as the recipe title
         self.recipePatterns = [
             CategoryTagPattern(),
             IngredientTablePattern(),
             RecipeTitlePattern()
         ]
             
-    def parse(self, content, isRecipe=False, url="") -> ParsingResult:
-        # Create result with an empty entity
-        entity = RecipeModel("", url) if isRecipe else CategoryModel("", url)
-        result = ParsingResult(entity)
-        # Process all patterns
+    def parse(self, content, entity, is_recipe) -> ParsingResult:
+
+        result = ParsingResult()
+        result.entity = entity
+        # Add recipe patterns if needed
         usedPatterns = self.patterns.copy()
-        if isRecipe:
+        if is_recipe:
             usedPatterns.extend(self.recipePatterns)
-            
+
         # Process character by character
         for character in content:                
             for pattern in usedPatterns:
