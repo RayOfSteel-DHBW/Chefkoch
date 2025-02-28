@@ -19,16 +19,17 @@ class TestContentParser(unittest.TestCase):
         # Load test HTML file
         self.loadFile('testFile')
         # Test parsing the actual HTML content
-        result = self.parser.parse(self.html_content, is_recipe=False)
+        result = self.parser.parse(self.html_content, CategoryModel(), is_recipe=False)
         
         # Verify the category URL was found
-        self.assertIn("https://www.chefkoch.de/rs/s0o6/Rezepte.html", result.foundRecipes)
+        self.assertIn("https://www.chefkoch.de/rs/s0o6/Rezepte.html", result.foundCategories)
     
     def test_parse_recipe_in_html(self):
         # Load recipe test HTML file
         self.loadFile('recipe-test')
+        entity = RecipeModel(url="https://www.chefkoch.de/rezepte/644981165672475/Das-beste-Kartoffelgratin.html")
         # Test parsing for recipe URLs
-        result = self.parser.parse(self.html_content, is_Rrecipe=True)
+        result = self.parser.parse(self.html_content, entity, is_Recipe=True)
         assert isinstance(result, ParsingResult)
         assert isinstance(result.entity, RecipeModel)
         assert(result.entity.name == "Das beste Kartoffelgratin")

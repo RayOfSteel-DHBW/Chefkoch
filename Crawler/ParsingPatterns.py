@@ -115,7 +115,7 @@ class IngredientTablePattern(PatternBase):
         self.tagBuffer = ""
         self.extractMode = False
         
-    def check_pattern(self, character):
+    def check_pattern(self, character, is_recipe):
         # States 0-1 remain unchanged
         if self.state == 0:
             self.tableBuffer += character
@@ -216,8 +216,7 @@ class IngredientTablePattern(PatternBase):
                 return True
             elif self.tagBuffer.endswith('</td>'):
                 self.inRightCell = False
-                self.state = 1
-                return True
+                return False
             return True
             
         return False
@@ -233,7 +232,7 @@ class CategoryPattern(PatternBase):
         self.state = 0
         self.htmlBuffer = ""
 
-    def check_pattern(self, character):
+    def check_pattern(self, character, is_recipe):
         if self.state == 0:
             self.content += character
             if self.fixedStart[len(self.content)] == character:
@@ -335,7 +334,7 @@ class RecipeTitlePattern(PatternBase):
         self.nameBuffer = ""
         self.extractingName = False
         
-    def check_pattern(self, character):
+    def check_pattern(self, character, is_recipe):
         # State 0: Looking for start of title tag
         if self.state == 0:
             self.tagBuffer += character

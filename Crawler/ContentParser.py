@@ -20,8 +20,7 @@ class ContentParser():
             
     def parse(self, content, entity, is_recipe) -> ParsingResult:
 
-        result = ParsingResult()
-        result.entity = entity
+        result = ParsingResult(entity)
         # Add recipe patterns if needed
         usedPatterns = self.patterns.copy()
         if is_recipe:

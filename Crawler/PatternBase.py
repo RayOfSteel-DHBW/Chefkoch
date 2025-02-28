@@ -37,10 +37,14 @@ class PatternBase(ABC):
         unicodeCharacter = self.check_unicode(character)
         if(unicodeCharacter):
             character = unicodeCharacter
-        if self.check_pattern(character, parsingResult):
-            self.content += character
-        else:
+        try:
+            if self.check_pattern(character, parsingResult):
+                self.content += character
+            else:
+                self.reset()
+        except Exception as e:
             self.reset()
+            print(f"An error occurred: {e}")
     
     @property
     def InternalState(self)->bool:

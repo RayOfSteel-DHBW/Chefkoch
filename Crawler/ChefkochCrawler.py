@@ -10,16 +10,16 @@ class ChefkochCrawler:
         self.content_parser = ContentParser()
         self.url_queue = deque()
         self.visited_urls = set()
-        self.fallback_url = "https://www.chefkoch.de/rezepte/"
+        self.fallback_url = "https://www.chefkoch.de/rezepte"
         
     def run(self)->bool:
         initial_categories = self.data_service.get_categories()
-        if initial_categories:
+        if len(initial_categories)>0:
             for category in initial_categories:
                 self.url_queue.enqueue_entity(category.url)
         else:
 
-            self.url_queue(self.fallback_url)
+            self.url_queue.append(self.fallback_url)
         
         while len(self.url_queue) > 0:
             try:
@@ -36,7 +36,7 @@ class ChefkochCrawler:
         """Process a page for info/links it contains"""
         content = self._fetch_url(url)
         if content:
-            is_recipe = url.startswith(self.fallback_url)
+            is_recipe = url.startswith("https://www.chefkoch.de/rezepte/")
             if is_recipe:
                 entity = RecipeModel(url=url)
             else:
