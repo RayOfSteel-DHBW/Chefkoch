@@ -14,7 +14,6 @@ def main() -> None:
 
 
 def InitializeCrawler():
- 
     dataService = ChefkochDataService()
     crawler = ChefkochCrawler(dataService)
     return crawler

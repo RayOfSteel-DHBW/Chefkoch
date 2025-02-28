@@ -1,10 +1,8 @@
 from peewee import Model, CharField, IntegerField, ManyToManyField, SqliteDatabase
 from pathlib import Path
 
-
-db_path = Path(r'..\Data\crawled_data.db')
+db_path = Path(Path(r'..\Data\crawled_data.db').resolve())
 # Ensure the data directory exists
-db_path.parent.mkdir(parents=True, exist_ok=True)
 
 # Initialize database
 db = SqliteDatabase(str(db_path), pragmas={'journal_mode': 'wal'})
@@ -24,7 +22,7 @@ class IngredientModel(ChefkochObjectModel):
     amount = CharField()
 
 class CategoryModel(ChefkochEntityModel):
-    external_id = IntegerField()
+    chefkoch_id = IntegerField()
     current_page = IntegerField(default=0)
     max_page = IntegerField(default=1)
 

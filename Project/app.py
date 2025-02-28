@@ -1,7 +1,6 @@
 import streamlit as st
 import os
-from utils.data_processor import load_recipes
-from utils.recipe_parser import parse_recipes
+from Project import data_loader
 from models.ingredient_analyzer import IngredientAnalyzer
 
 def streamlit_setup():
@@ -9,13 +8,12 @@ def streamlit_setup():
     st.sidebar.header("Data Source")
     
 def load_data():
-    dataLoader = DataLoader()
-    dataLoader.LoadData()
-    return dataLoader.data
+    dataLoader = data_loader()
+    return dataLoader.load_data_and_clean()
+
 
 def visualize():
-    #
-
+    //
 
 def main():
     streamlit_setup()

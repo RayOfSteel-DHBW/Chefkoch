@@ -5,17 +5,33 @@ from ParsingResult import ParsingResult
 
 class ContentParser():
     def __init__(self):
-        self.rs_pattern = re.compile(r'/rs/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)\.html')
-        self.rezepte_pattern = re.compile(r'/rs/s0(.+)/[a-zA-z0-9-]+.html')
-            
+        self.rs_pattern = re.compile(r'\/rs\/([A-z]\d{1,4}){1,7}\/([A-z]+-?[A-z])+.html')
+        self.rezepte_pattern = re.compile(r'/rezepte/\d{5}\/[A-z]+-?[A-z]+.html')
+        self.parameter_pattern = re.compile(r"'(\d+)")
+    
+    def get_params_from_url(self, entity)->dict:
+        split = re.split(self.parameter_pattern, entity.url.split('/')[-2])
+        return {split[i]: split[i+1] for i in range(0, len(split), 2)}
+        
     def parse(self, content, entity, is_recipe):
-        if is_recipe:
+        if entity is not None:
             entity.name = self.find_first_h1(content)
             entity.url = entity.url
-            entity.categories = self.rs_pattern.findall(content)
-            entity.ingredients = self.parse_ingredients_table(content)
-            entity.rating = self.parse_average_rating(content)
-        result = ParsingResult(entity)
+            if is_recipe:
+                entity.categories = self.rs_pattern.findall(content)
+                entity.ingredients = self.parse_ingredients_table(content)
+                entity.rating = self.parse_average_rating(content)
+            else:
+                entity.name = self.find_first_h1(content)
+                entity.url = entity.url
+                result = ParsingResult(entity)
+        else:
+            # entity is None = we are on the main page
+            result = ParsingResult(None)
+            result.foundCategories = self.parse_main_page(content)
+            res
+                    
+                               
         
         rs_matches = self.rs_pattern.findall(content)
         rezepte_matches = self.rezepte_pattern.findall(content)

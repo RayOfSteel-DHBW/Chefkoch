@@ -18,15 +18,16 @@ class ChefkochCrawler:
             for category in initial_categories:
                 self.url_queue.enqueue_entity(category.url)
         else:
-
             self.url_queue.append(self.fallback_url)
         
         while len(self.url_queue) > 0:
             url = self.url_queue.popleft()
             if url in self.visited_urls:
                 continue
-            self.process_page(url)
-            continue
+            else:
+                self.process_page(url)
+            
+        return True
         
     def process_page(self, url):
         """Process a page for info/links it contains"""
@@ -35,19 +36,21 @@ class ChefkochCrawler:
             is_recipe = url.startswith("https://www.chefkoch.de/rezepte/")
             if is_recipe:
                 entity = RecipeModel(url=url)
-            else:
+            elif url.startswith("https://www.chefkoch.de/rs/"):
                 entity = CategoryModel(url=url)
+            else:
+                entity = None
+            
             parsingResult = self.content_parser.parse(content, entity, is_recipe)
             self.enqueue_results(parsingResult)
             if parsingResult:
                 self.data_service.create_entity(parsingResult, is_recipe)
-
             else:
                 print(f"Unable to process {url}")
             
     def enqueue_results(self, result:ParsingResult):
         """Add found entities to the queue if they are not already visited"""
-        for entity in result.foundCategories + result.foundRecipes:
+        for entity in result.foundCategories.extend(result.foundRecipes):
             if entity.url not in self.visited_urls:
                 self.url_queue.append(entity.url)
             
