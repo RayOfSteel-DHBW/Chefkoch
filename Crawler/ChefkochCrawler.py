@@ -13,8 +13,9 @@ class ChefkochCrawler:
         self.fallback_url = "https://www.chefkoch.de/rezepte"
         
     def run(self)->bool:
-        initial_categories = self.data_service.get_categories()
-        if len(initial_categories)>0:
+        initial_categories = self.data_service.get_categories_for_update()
+        
+        if initial_categories.count() > 0:
             for category in initial_categories:
                 self.url_queue.enqueue_entity(category.url)
         else:
@@ -35,24 +36,27 @@ class ChefkochCrawler:
         if content:
             is_recipe = url.startswith("https://www.chefkoch.de/rezepte/")
             if is_recipe:
-                entity = RecipeModel(url=url)
+                entity = RecipeModel()
             elif url.startswith("https://www.chefkoch.de/rs/"):
-                entity = CategoryModel(url=url)
+                entity = CategoryModel()
             else:
                 entity = None
-            
-            parsingResult = self.content_parser.parse(content, entity, is_recipe)
-            self.enqueue_results(parsingResult)
+            parsingResult = self.content_parser.parse(content, entity, is_recipe, url)
             if parsingResult:
-                self.data_service.create_entity(parsingResult, is_recipe)
+                self.enqueue_results(parsingResult)
+                if parsingResult.entity:
+                    self.data_service.process_entity(parsingResult.entity)
             else:
                 print(f"Unable to process {url}")
             
     def enqueue_results(self, result:ParsingResult):
         """Add found entities to the queue if they are not already visited"""
-        for entity in result.foundCategories.extend(result.foundRecipes):
-            if entity.url not in self.visited_urls:
-                self.url_queue.append(entity.url)
+        for entity in result.foundCategories:
+            if entity not in self.visited_urls:
+                self.url_queue.append(entity)
+        for entity in result.foundRecipes:
+            if entity not in self.visited_urls:
+                self.url_queue.appendleft(entity)
             
             
     def _fetch_url(self, url):

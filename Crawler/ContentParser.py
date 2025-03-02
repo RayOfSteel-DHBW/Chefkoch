@@ -1,46 +1,58 @@
 import re
 from bs4 import BeautifulSoup
-from ChefkochDataService import IngredientModel, CategoryModel, RecipeModel
+from streamlit import query_params
+from ChefkochDataService import ChefkochEntityModel, IngredientModel, CategoryModel, RecipeModel
 from ParsingResult import ParsingResult
 
 class ContentParser():
     def __init__(self):
-        self.rs_pattern = re.compile(r'\/rs\/([A-z]\d{1,4}){1,7}\/([A-z]+-?[A-z])+.html')
+        self.rs_pattern = re.compile(r'\/rs\/(?:[A-z]\d{1,4}){1,7}\/(?:[A-z]+-?[A-z])+.html')
         self.rezepte_pattern = re.compile(r'/rezepte/\d{5}\/[A-z]+-?[A-z]+.html')
-        self.parameter_pattern = re.compile(r"'(\d+)")
+        self.parameter_pattern = re.compile(r'([A-Za-z])(\d{1,4})')
     
-    def get_params_from_url(self, entity)->dict:
-        split = re.split(self.parameter_pattern, entity.url.split('/')[-2])
-        return {split[i]: split[i+1] for i in range(0, len(split), 2)}
-        
-    def parse(self, content, entity, is_recipe):
+    def get_params_from_url(self, url:str)->dict:
+        result = dict()
+        urlParts = url.split('/')
+        if len(urlParts) == 6:
+            result["file"] = urlParts[-1]
+            result["dir"] = urlParts[-2]
+            if urlParts[3] == "rs":
+                query_string = result["dir"]
+                params = re.split(self.parameter_pattern, query_string)
+                for i in range(1, len(params)):
+                    value = params[i]
+                    if(value != "" and not value.isnumeric()):
+                        result[value] = params[i+1]
+        else:
+            return None
+        return result
+    
+    def parse(self, content, entity:ChefkochEntityModel, is_recipe, url):
         if entity is not None:
+            result = ParsingResult(entity)
+            query_params = self.get_params_from_url(url)
             entity.name = self.find_first_h1(content)
-            entity.url = entity.url
+            entity.file = query_params["file"]
             if is_recipe:
-                entity.categories = self.rs_pattern.findall(content)
+                entity.categories = self.parse_recipe_categories(content)
                 entity.ingredients = self.parse_ingredients_table(content)
                 entity.rating = self.parse_average_rating(content)
+                entity.recipe_id = query_params["dir"]
             else:
-                entity.name = self.find_first_h1(content)
-                entity.url = entity.url
-                result = ParsingResult(entity)
+                entity.current_page = query_params["s"]
+                entity.category_id = query_params["t"]     
         else:
             # entity is None = we are on the main page
             result = ParsingResult(None)
-            result.foundCategories = self.parse_main_page(content)
-            res
-                    
-                               
-        
-        rs_matches = self.rs_pattern.findall(content)
-        rezepte_matches = self.rezepte_pattern.findall(content)
-        
-        result.foundCategories = [CategoryModel(url=f"https://www.chefkoch.de{match[0]}") for match in rs_matches]
-        result.foundRecipes = [RecipeModel(url=f"https://www.chefkoch.de{match[0]}") for match in rezepte_matches]
+            
+        for match in self.rs_pattern.findall(content):
+            if("t" in match.split('/')[2]):
+                result.foundCategories.append(f"https://www.chefkoch.de{match}")
+
+        result.foundRecipes = [f"https://www.chefkoch.de{match[0]}" for match in self.rezepte_pattern.findall(content)]
         
         return result
-
+    
     def parse_ingredients_table(self, content):
         soup = BeautifulSoup(content, 'html.parser')
         table = soup.find('table', {'class': 'ingredients table-header'})
@@ -53,7 +65,7 @@ class ContentParser():
                 if len(cols) == 2:
                     quantity = cols[0].get_text(strip=True)
                     ingredient = cols[1].get_text(strip=True)
-                    ingredients.append(IngredientModel(name=ingredient, amount=quantity))
+                    ingredients.append({'name': ingredient, 'amount': quantity})
         
         return ingredients
 
