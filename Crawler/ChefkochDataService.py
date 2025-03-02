@@ -8,7 +8,7 @@ from typing import Union
 
 # from Crawler import ParsingResult  # Adjust import as needed
 
-db_path = Path(Path(r'..\Data\crawled_data.db').resolve())
+db_path = Path(r'Data\crawled_data.db').resolve()
 db = SqliteDatabase(str(db_path), pragmas={'journal_mode': 'wal'})
 
 
@@ -98,11 +98,9 @@ class ChefkochDataService:
             category, created = CategoryModel.get_or_create(
                 name=category_data.name,
                 category_id=category_data.category_id,
-                defaults={
-                    'file': category_data.file,
-                    'current_page': category_data.current_page,
-                    'max_page': category_data.max_page
-                }
+                file=category_data.file,
+                current_page = category_data.current_page,
+                max_page = category_data.max_page
             )
             if not created:
                 category.current_page = category_data.current_page
@@ -111,43 +109,46 @@ class ChefkochDataService:
                 category.save()
             return category
 
-    def create_or_update_recipe(self, recipe_data: RecipeModel,
-                                ingredient_amounts: dict,
-                                category_ids: list) -> RecipeModel:
-        """
-        Check if a recipe already exists by (name, recipe_id).
-        If it does, update relevant fields.
-        Then link to ingredients and categories, creating them if needed.
-        
-        :param recipe_data: A RecipeModel instance with the basic fields set.
-        :param ingredient_amounts: A dict containing ingredient_name -> amount
-        :param category_ids: A list of CategoryModel primary keys or unique identifiers
-        """
+    def create_or_update_recipe(self, recipe_data: RecipeModel, ingredients: list[dict], category_ids: list[int]) -> RecipeModel:
+        # Wrap the whole operation in a transaction to ensure atomicity.
         with db.atomic():
+            # Either fetch an existing recipe or create a new one
             recipe, created = RecipeModel.get_or_create(
                 name=recipe_data.name,
                 recipe_id=recipe_data.recipe_id,
-                defaults={
-                    'file': recipe_data.file
-                }
-            )
+                file=recipe_data.file)
             if not created:
+                # If the recipe already exists, update fields as needed
                 recipe.file = recipe_data.file
                 recipe.save()
 
-            # Link ingredients
-            for ingredient_name, amount in ingredient_amounts.items():
-                ingredient, _ = IngredientModel.get_or_create(name=ingredient_name)
-                recipe.ingredients.add(ingredient, through_defaults={'amount': amount})
+            # Process and link ingredients with the custom through model.
+            for ingredient_data in ingredients:
+                # Ensure the Ingredient exists in the database.
+                # This will create a new IngredientModel entry if it doesn't exist.
+                ingredient, _ = IngredientModel.get_or_create(name=ingredient_data['name'])
+                
+                # Create or update the link in the through model.
+                # Using get_or_create avoids creating duplicate links.
+                recipe_ing, created = RecipeIngredientThroughModel.get_or_create(
+                    recipe=recipe,
+                    ingredient=ingredient,
+                    defaults={'amount': ingredient_data['amount']}
+                )
+                if not created:
+                    # Update the amount if the link already exists.
+                    recipe_ing.amount = ingredient_data['amount']
+                    recipe_ing.save()
 
-            # Link categories
-            # If you have the entire CategoryModel object instead of IDs, adapt accordingly
+            # Process and link categories. You could similarly check if you want to update categories.
             for cat_id in category_ids:
                 try:
                     cat = CategoryModel.get_by_id(cat_id)
+                    # The ManyToManyField helper lets you add links without dealing with the through model directly.
                     recipe.categories.add(cat)
                 except DoesNotExist:
-                    pass  # Or create a new category if needed
+                    # Optionally handle the case where the category isn't found
+                    pass
 
             return recipe
 
