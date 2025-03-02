@@ -2,7 +2,7 @@ from ast import Tuple
 from pathlib import Path
 from peewee import (
     Model, CharField, IntegerField, ManyToManyField, SqliteDatabase,
-    DoesNotExist, ForeignKeyField
+    DoesNotExist, ForeignKeyField, FloatField
 )
 from typing import Union
 
@@ -54,6 +54,7 @@ class CategoryModel(ChefkochEntityModel):
 class RecipeModel(ChefkochEntityModel):
     categories = ManyToManyField(CategoryModel, backref='recipes')
     recipe_id = CharField()
+    rating = FloatField()
 
     @property
     def url(self):
@@ -63,6 +64,7 @@ class RecipeIngredientThroughModel(Model):
     recipe = ForeignKeyField(RecipeModel, backref='recipe_ingredients')
     ingredient = ForeignKeyField(IngredientModel, backref='ingredient_recipes')
     amount = CharField()
+
 
     class Meta:
         database = db
@@ -116,11 +118,13 @@ class ChefkochDataService:
             recipe, created = RecipeModel.get_or_create(
                 name=recipe_data.name,
                 recipe_id=recipe_data.recipe_id,
+                rating = recipe_data.rating,
                 defaults={'file': recipe_data.file}
             )
             if not created:
                 # If the recipe already exists, update fields as needed
                 recipe.file = recipe_data.file
+                recipe.rating = recipe_data.rating
                 recipe.save()
                 print(f"[UPDATED Recipe] {recipe.name} (ID: {recipe.recipe_id})")
             else:
@@ -165,8 +169,6 @@ class ChefkochDataService:
         If it's a RecipeModel, create or update it with its related data.
         """
         if isinstance(entity, CategoryModel):
-            if(entity.current_page < entity.max_page):
-                entity.current_page += 1
             self.create_or_update_category(entity)
         elif isinstance(entity, RecipeModel):
             self.create_or_update_recipe(entity, ingredients)
