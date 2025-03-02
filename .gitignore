@@ -39,3 +39,4 @@ htmlcov/
 # Database
 *.db
 *.sqlite3
+Data/*.db-*
