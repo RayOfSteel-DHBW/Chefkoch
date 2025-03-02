@@ -1,12 +1,10 @@
+from ast import Tuple
 from pathlib import Path
 from peewee import (
     Model, CharField, IntegerField, ManyToManyField, SqliteDatabase,
     DoesNotExist, ForeignKeyField
 )
-from fileinput import filename
 from typing import Union
-
-# from Crawler import ParsingResult  # Adjust import as needed
 
 db_path = Path(r'Data\crawled_data.db').resolve()
 db = SqliteDatabase(str(db_path), pragmas={'journal_mode': 'wal'})
@@ -57,10 +55,6 @@ class RecipeModel(ChefkochEntityModel):
     categories = ManyToManyField(CategoryModel, backref='recipes')
     recipe_id = CharField()
 
-    def __init__(self, name, file, recipe_id):
-        super().__init__(name, file)
-        self.recipe_id = recipe_id
-
     @property
     def url(self):
         return f"https://www.chefkoch.de/rezepte/{self.recipe_id}/{self.file}"
@@ -72,9 +66,8 @@ class RecipeIngredientThroughModel(Model):
 
     class Meta:
         database = db
+
 RecipeCategoryThrough = RecipeModel.categories.get_through_model()
-
-
 
 
 class ChefkochDataService:
@@ -99,62 +92,73 @@ class ChefkochDataService:
                 name=category_data.name,
                 category_id=category_data.category_id,
                 file=category_data.file,
-                current_page = category_data.current_page,
-                max_page = category_data.max_page
+                defaults={
+                    'current_page': category_data.current_page,
+                    'max_page': category_data.max_page
+                }
             )
             if not created:
+                # If the category already exists, update it as needed
                 category.current_page = category_data.current_page
                 category.max_page = category_data.max_page
                 category.file = category_data.file
                 category.save()
+                print(f"[UPDATED Category] {category.name} (ID: {category.category_id}, current_page: {category.current_page}, max_page: {category.max_page})")
+            else:
+                print(f"[CREATED Category] {category.name} (ID: {category.category_id}, current_page: {category.current_page}, max_page: {category.max_page})")
+
             return category
 
-    def create_or_update_recipe(self, recipe_data: RecipeModel, ingredients: list[dict], category_ids: list[int]) -> RecipeModel:
+    def create_or_update_recipe(self, recipe_data: RecipeModel, ingredients: dict[str, str]) -> RecipeModel:
         # Wrap the whole operation in a transaction to ensure atomicity.
         with db.atomic():
             # Either fetch an existing recipe or create a new one
             recipe, created = RecipeModel.get_or_create(
                 name=recipe_data.name,
                 recipe_id=recipe_data.recipe_id,
-                file=recipe_data.file)
+                defaults={'file': recipe_data.file}
+            )
             if not created:
                 # If the recipe already exists, update fields as needed
                 recipe.file = recipe_data.file
                 recipe.save()
+                print(f"[UPDATED Recipe] {recipe.name} (ID: {recipe.recipe_id})")
+            else:
+                print(f"[CREATED Recipe] {recipe.name} (ID: {recipe.recipe_id})")
 
             # Process and link ingredients with the custom through model.
-            for ingredient_data in ingredients:
-                # Ensure the Ingredient exists in the database.
-                # This will create a new IngredientModel entry if it doesn't exist.
-                ingredient, _ = IngredientModel.get_or_create(name=ingredient_data['name'])
-                
+            for ingredientName, ingredientAmount in ingredients.items():
+                ingredient, ing_created = IngredientModel.get_or_create(name=ingredientName)
+                if ing_created:
+                    print(f"   -> [CREATED Ingredient] {ingredient.name}")
+                else:
+                    print(f"   -> [FOUND Ingredient] {ingredient.name}")
+
                 # Create or update the link in the through model.
-                # Using get_or_create avoids creating duplicate links.
-                recipe_ing, created = RecipeIngredientThroughModel.get_or_create(
+                recipe_ing, thr_created = RecipeIngredientThroughModel.get_or_create(
                     recipe=recipe,
                     ingredient=ingredient,
-                    defaults={'amount': ingredient_data['amount']}
+                    defaults={'amount': ingredientAmount}
                 )
-                if not created:
+                if not thr_created:
                     # Update the amount if the link already exists.
-                    recipe_ing.amount = ingredient_data['amount']
+                    recipe_ing.amount = ingredientAmount
                     recipe_ing.save()
 
-            # Process and link categories. You could similarly check if you want to update categories.
-            for cat_id in category_ids:
+                print(f"      - Linked: {ingredient.name} with amount {ingredientAmount}")
+
+            # Process and link categories
+            for cat_id in recipe_data.categories:
                 try:
                     cat = CategoryModel.get_by_id(cat_id)
-                    # The ManyToManyField helper lets you add links without dealing with the through model directly.
                     recipe.categories.add(cat)
+                    print(f"   -> Linked Recipe '{recipe.name}' with Category '{cat.name}' (ID: {cat.category_id})")
                 except DoesNotExist:
-                    # Optionally handle the case where the category isn't found
-                    pass
-
+                    print(f"   -> [WARNING] Category with ID {cat_id} does not exist.")
+            
             return recipe
 
-    def process_entity(self, entity: ChefkochEntityModel,
-                       ingredient_amounts=None,
-                       category_ids=None) -> None:
+    def process_entity(self, entity: ChefkochEntityModel, ingredients:dict[str, str]) -> None:
         """
         General method to process an entity.
         If it's a CategoryModel, create or update it.
@@ -163,17 +167,13 @@ class ChefkochDataService:
         if isinstance(entity, CategoryModel):
             self.create_or_update_category(entity)
         elif isinstance(entity, RecipeModel):
-            if ingredient_amounts is None:
-                ingredient_amounts = {}
-            if category_ids is None:
-                category_ids = []
-            self.create_or_update_recipe(entity, ingredient_amounts, category_ids)
+            self.create_or_update_recipe(entity, ingredients)
         else:
             raise ValueError("Unsupported entity type")
+        db.commit()
 
     def get_categories_for_update(self):
         """
         Returns categories that can still be updated (i.e., current_page < max_page).
         """
         return CategoryModel.select().where(CategoryModel.current_page < CategoryModel.max_page)
-    

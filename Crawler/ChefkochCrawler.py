@@ -17,7 +17,7 @@ class ChefkochCrawler:
         
         if initial_categories.count() > 0:
             for category in initial_categories:
-                self.url_queue.enqueue_entity(category.url)
+                self.url_queue.append(category.url)
         else:
             self.url_queue.append(self.fallback_url)
         
@@ -45,9 +45,11 @@ class ChefkochCrawler:
             if parsingResult:
                 self.enqueue_results(parsingResult)
                 if parsingResult.entity:
-                    self.data_service.process_entity(parsingResult.entity)
+                    self.data_service.process_entity(parsingResult.entity, parsingResult.ingredient_amounts)
             else:
                 print(f"Unable to process {url}")
+        else:
+            print(f"Unable to fetch {url}")
             
     def enqueue_results(self, result:ParsingResult):
         """Add found entities to the queue if they are not already visited"""
