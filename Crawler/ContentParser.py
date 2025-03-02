@@ -39,9 +39,12 @@ class ContentParser():
                 query_string = result["dir"]
                 params = re.split(self.parameter_pattern, query_string)
                 for i in range(1, len(params)):
-                    value = params[i]
-                    if(value != "" and not value.isnumeric()):
-                        result[value] = params[i+1]
+                    key = params[i]
+                    if(key != "" and not key.isnumeric()):
+                        value = params[i+1]
+                        if value.isnumeric():
+                            result[key] = int(value)
+                            
         else:
             return None
         return result
@@ -67,7 +70,7 @@ class ContentParser():
                 entity.categories = self.parse_recipe_categories(content)
                 result.ingredient_amounts = self.parse_ingredients_table(content)
             else:
-                entity.current_page = query_params["s"]
+                entity.current_page = int(query_params["s"])
                 entity.category_id = query_params["t"]
                 entity.save()     
         else:

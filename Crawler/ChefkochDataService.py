@@ -165,6 +165,8 @@ class ChefkochDataService:
         If it's a RecipeModel, create or update it with its related data.
         """
         if isinstance(entity, CategoryModel):
+            if(entity.current_page < entity.max_page):
+                entity.current_page += 1
             self.create_or_update_category(entity)
         elif isinstance(entity, RecipeModel):
             self.create_or_update_recipe(entity, ingredients)

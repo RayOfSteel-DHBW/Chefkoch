@@ -17,7 +17,7 @@ class ChefkochCrawler:
         
         if initial_categories.count() > 0:
             for category in initial_categories:
-                self.url_queue.append(category.url)
+                self.url_queue.append(category.next_page_url)
         else:
             self.url_queue.append(self.fallback_url)
         
